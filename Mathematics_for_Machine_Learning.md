@@ -72,11 +72,13 @@ The *Binomial distribution* is the Bernoulli distribution extended over *n* turn
 3. **P**(x = *m*) = (*n*,*m*) *p*<sup>*m*</sup>(1-*p*)<sup>*n*-*m*</sup>
 3. 𝔼[x] = nφ
 
-The *Gaussian distribution* or *normal distribution* is likely the most commonly-known distributions because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>:
+The *Gaussian distribution* or *normal distribution* is likely the most commonly-known distributions because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>: <center>
+  <img src="https://i.imgur.com/lMpXZX7.png" height="50">
+</center>
 
-For the values of *μ* and *σ* in the legend, the Gaussian distribution looks like:
-
-
+For the values of *μ* and *σ* in the legend, the Gaussian distribution looks like: <center>
+  <img src="https://i.imgur.com/53KA7PA.png" height="200">
+</center>
 
 The *Beta distribution* is one of the most useful distributions in statistics, particularly in the Bayesian model. Unfortunately, it has a complex form and is rather computation-intensive, often making it unfeasible from a pragmatic ML perspective. Many of its practical usages can be approximated by a Gaussian distribution.
 
