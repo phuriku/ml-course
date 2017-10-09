@@ -1,5 +1,6 @@
-phuriku's Writings
-==================
+Machine Learning Course
+=======================
 
-- A Quick Introduction to the Mathematics of Machine Learning
-- An Introduction to Regression with Spark MLlib
+- [Course Plan](https://github.com/phuriku/phuriku/blob/master/Course_Plan.md)
+- [The Mathematics of Machine Learning](https://github.com/phuriku/phuriku/blob/master/Mathematics_for_Machine_Learning.md)
+- [An Introduction to Regression with Spark MLlib](https://github.com/phuriku/phuriku/blob/master/Regression.md)
