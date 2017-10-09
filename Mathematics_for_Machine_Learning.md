@@ -51,6 +51,15 @@ Conditional Probability
 Joint Probability Distributions and Independence
 ------------------------------------------------
 
+Probability distributions can model many variables at the same time. A *joint distribution* **P**(*x* = 1, *y* = 0) denotes the joint probability that the random variable *x* is 1 and *y* is 0 simultaneously.
+
+We say that two random variables *x* and *y* are *independent* if their joint probability distribution is the product of the two distributions taken independently:<center>**P**(*x* = x, *y* = y) = **P**(*x* = x) · **P**(*y* = y).</center>
+
+For example, if a random variable *x* models the toss of a 6-sided die, while *y* models the flip of a coin, then these are clearly independent, *e.g.* <center>**P**(*x* = 3, *y* = heads) = **P**(*x* = 3) · **P**(*y* = heads) = (1/6) · (1/2) = 1/12.</center>
+
+However,
+
+
 Expectation, Variance, and Covariance
 -------------------------------------
 The *expectation* or *expected value* of a random variable is the mean value taken by its probability distribution. In symbols, the expected value of *x* is written 𝔼[x] = Σ<sub>x</sub>xP(x) for discrete distributions, and 𝔼[x] = ∫xP(x) for continuous distributions.
@@ -72,13 +81,19 @@ The *Binomial distribution* is the Bernoulli distribution extended over *n* turn
 3. **P**(x = *m*) = (*n*,*m*) *p*<sup>*m*</sup>(1-*p*)<sup>*n*-*m*</sup>
 3. 𝔼[x] = nφ
 
-The *Gaussian distribution* or *normal distribution* is likely the most commonly-known distributions because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>: <center>
+The following image is the binomial distribution for *p* = 0.5, *n* = 15:<center>
+  <img src="https://i.imgur.com/przhOUO.png" height="180">
+</center>
+
+The *Gaussian distribution* or *normal distribution* is the most commonly-known distribution, primarily because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>: <center>
   <img src="https://i.imgur.com/lMpXZX7.png" height="50">
 </center>
 
 For the values of *μ* and *σ* in the legend, the Gaussian distribution looks like: <center>
   <img src="https://i.imgur.com/53KA7PA.png" height="200">
 </center>
+
+The Gaussian distribution can be used to approximate the binomial distribution with parameters *μ* = *np* and *σ*<sup>2</sup> = *np*(1-*p*).
 
 The *Beta distribution* is one of the most useful distributions in statistics, particularly in the Bayesian model. Unfortunately, it has a complex form and is rather computation-intensive, often making it unfeasible from a pragmatic ML perspective. Many of its practical usages can be approximated by a Gaussian distribution.
 
@@ -154,7 +169,7 @@ is
 
 Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformation **A** is applied after linear transformation **B** on a vector space. The following matrix properties hold:
 
-1. **A**(**B**+**C**) = **AB** + **AC** (distributive property)
-2. **A(BC)** = **(AB)C** (associative property)
-3. (**AB**)**<sup>T</sup>** = **B<sup>T</sup>A<sup>T</sup>**
+1. **A** (**B**+**C**) = **A B** + **A C** (distributive property)
+2. **A** (**B C**) = (**A B**) **C** (associative property)
+3. (**A B**)**<sup>T</sup>** = **B<sup>T</sup> A<sup>T</sup>**
 4. There is an identity matrix **I<sub>n</sub>** such that **I<sub>n</sub>u** = **u** for all vectors **u** ∈ ℝ<sup>n</sup>.
