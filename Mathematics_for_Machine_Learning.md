@@ -1,42 +1,84 @@
 Mathematics for Machine Learning
 ================================
-There are a number of mathematical pre-requisites for machine learning. Fortunately, these are not as numerous as is often assumed, and much of the mathematics necessary for machine learning is better learned only before the applications for which it is necessary. As such, this section will be concise.
+There are a few mathematical pre-requisites for machine learning, including elementary probability theory and linear algebra. Fortunately, much of the mathematics necessary for ML is better learned directly before the applications for which it is necessary. This section will only cover the content necessary to understand even the most elementary parts of machine learning.
 
 What is Machine Learning?
 -------------------------
-Most of machine learning can be classified as basic applied statistics. Specifically, machine learning is used to model existing datasets so that predictions and classifications can be made for future data points without manual effort. As such, most of the mathematics behind machine learning involves some degree of linear algebra, probability, and statistics.
+Most of machine learning can be classified as basic applied statistics. Specifically, machine learning consists of modeling existing datasets so that predictions and classifications can be made for future data points without human intervention. As such, most of the mathematics behind machine learning involves some degree of linear algebra, probability, and statistics.
 
 Supervised vs. Unsupervised Learning
 ------------------------------------
-To reiterate, machine learning is mostly composed of generating mathematical models for pre-existing datasets so that future data can be classified. In this respect, there are two types of machine learning problems: 1) supervised, wherein a correct classification exists for each point in the existing dataset that can be used to make predictions about incoming data, 2) unsupervised, wherein the existing dataset is raw.
+Machine learning mostly consists of generating mathematical models for pre-existing datasets so that future data can be classified. In this respect, there are two types of machine learning problems: 1) *supervised learning*, where a correct label is known and assigned to each point in an existing dataset that can help to train a mathematical model, and 2) *unsupervised learning*, where the existing dataset is raw in the purest sense.
 
-An example of supervised learning would be classifying pictures of dogs and cats using a dataset of 100 pictures for which we have already classified each picture as a dog or a cat. Using this data, a model can be derived that can make predictions of whether a future picture is of a dog or a cat.
+An example of supervised learning would be classifying pictures of dogs and cats using a dataset of 100 pictures for which we have already classified each picture as a dog or a cat. Using this pre-sorted data, a model can be derived to make predictions about whether future pictures are dogs or cats.
 
-An example of unsupervised learning would be clustering points in a dataset. There are no pre-existing correct answers or classifications for the existing data, only raw data points. Using certain algorithms, we can divide data points into natural clusters.
+An example of unsupervised learning would be clustering points in a dataset. There are no classifications for the existing data, only raw data points. Using mathematical algorithms, we can divide data points into natural clusters.
 
 Offline vs. Online Learning
 ---------------------------
-There is also a dichotomy in machine learning between offline and online learning. Offline learning uses a static dataset to generate a model that is fixed even as new data comes in. Online learning produces a dynamic model that is constantly adjusting itself as new data comes in. Online learning tends to be more complex and computationally-intensive than offline learning.
+There is also a dichotomy in ML between offline and online learning.
+
+Offline learning uses a *static* dataset to generate a model that remains unmodified even as new data comes in. On the other hand, online learning produces a dynamic model that is constantly adjusting itself with new data points. Online learning tends to be more complex and computation-intensive than offline learning.
 
 Probability & Statistics
 ========================
-In machine learning, as in the case of almost any modeling based on limited datasets, there is often a large degree of uncertainty. This uncertainty must be quantified, and probability theory is the tool used to do it.
+As in the case of almost any modeling based on limited datasets, there is often a large degree of uncertainty in ML. This uncertainty must be quantified, and probability theory is the tool used to do it.
 
 Frequentist vs. Bayesian Statistics
 -----------------------------------
-There are 2 major ways to think about statistics: Frequentist and Bayesian. Frequentists infer distributions given an existing dataset, while Bayesians additionally rely on a subjective prior hypothesis that guides their assumptions.
+There are 2 major ways to think about statistics: Frequentist and Bayesian. Frequentists infer distributions based only on the existing data. In contrast, Bayesians rely on a prior hypothesis that guides their initial assumptions and slowly change their view as new data comes in.
 
-For example, in baseball the at-bat success ratio is about 0.26. If a baseball player has 3 hits and 27 outs at bat during his first 10 games, a frequentist will peg the player's future chances of a hit at 0.1. The Bayesian would use the league's average batting average as a prior subjective hypothesis, and naturally modify this subjective hypothesis as more data streams in.
+In major league baseball, the median at-bat success ratio is about 0.26. If a baseball player has 3 hits and 27 outs at bat during his first 10 games, a frequentist will peg the player's future expected chances of a hit at 0.1 with a large potential variance. The Bayesian would use the league's median batting average as a prior hypothesis, and naturally modify this view as more data becomes available.
 
-Bayesian statistics is extremely important for our purposes, but will be explained when it becomes necessary. As a brief introduction to Bayesian statistics and the Beta distribution, please refer to [this elegant explanation](http://varianceexplained.org/statistics/beta_distribution_and_baseball/).
+Bayesian statistics is extremely important for our purposes, but will be explained as it becomes relevant. As a brief introduction to Bayesian statistics and the Beta distribution, please refer to [this elegant explanation](http://varianceexplained.org/statistics/beta_distribution_and_baseball/) that fleshes out the example above.
 
 Random Variables and Probability Distributions
 ----------------------------------------------
-A *random variable* is a variable that takes on values randomly, based on some probability distribution. A probability distribution is described using a *probability mass function* denoted by **P**. The notation **P**(x = 1) translates to: "the probability that the random variable *x* takes on the value 1."
+A *random variable* is a variable that takes on values randomly, based on some probability distribution. A probability distribution is described using a *probability mass function* denoted by **P**. The notation **P**(x = 1) translates to: "the probability that the random variable *x* takes the value 1."
+
+A probability distribution can be either *continuous* or *discrete*. Discrete distributions take a finite (or countably-infinite) number of values, while continuous distributions take values along a continuous spectrum (such as ℝ).
+
+For example, the uniform distribution (where *n* values each occur at a probability of 1/*n*) is discrete. A fair dice roll is an example of a uniform distribution with *n*=6. The normal distribution, covered later, is a continuous distribution.
+
+In a continuous distribution, probabilities are not taken over points, but over *ranges*. For example, the probability that a random variable *x* takes values between 1 and 2 is described by ∫<sub>1</sub><sup>2</sup>**P**(x).
+
+In the discrete case, probabilities of individual values must sum to 1: Σ<sub>x</sub>**P**(x) = 1. In the continuous case, this is an integral: ∫**P**(x) = 1. This implies that for discrete distributions, the probability of an individual value cannot exceed 1, whereas for continuous distributions, the probability of the value lying in a specified *range* cannot exceed 1.
+
+Conditional Probability
+-----------------------
+
+
+Joint Probability Distributions and Independence
+------------------------------------------------
+
+Expectation, Variance, and Covariance
+-------------------------------------
+The *expectation* or *expected value* of a random variable is the mean value taken by its probability distribution. In symbols, the expected value of *x* is written 𝔼[x] = Σ<sub>x</sub>xP(x) for discrete distributions, and 𝔼[x] = ∫xP(x) for continuous distributions.
+
+The *standard deviation* of a random variable *x* describes how widely the values of *x* vary across the distribution. It is described by the average deviance from the mean: SD(x) = 𝔼[|x - 𝔼(x)|]. The *variance* Var(x) is the standard deviation squared, and is more commonly used than SD(x).
+
+The *covariance* between two random variables *x* and *y* describes how they vary in relation to each other: Cov(x,y) = 𝔼[(x - 𝔼(x))(y - 𝔼(y))]. The covariance is positive for variables that vary similarly, negative for variables that vary inversely, and approximately 0 for variables with little similarity.
+
+Common Probability Distributions
+--------------------------------
+The *Bernoulli distribution* is a distribution controlled by a single parameter *p* between 0 and 1, which represents the chances of a success. It has the following properties:
+1. **P**(x = 1) = *p*
+2. **P**(x = 0) = 1 - *p*
+3. 𝔼[x] = *p*
+
+The *Binomial distribution* is the Bernoulli distribution extended over *n* turns. It represents the probability of *m* successes over *n* turns, where each turn has a success probability of *p*. It has the following properties:
+1. **P**(x = *n*) = *p*<sup>*n*</sup>
+2. **P**(x = 0) = (1-*p*)<sup>*n*</sup>
+3. **P**(x = *m*) = (*n*,*m*) *p*<sup>*m*</sup>(1-*p*)<sup>*n*-*m*</sup>
+3. 𝔼[x] = nφ
+
+The *Gaussian distribution* or *normal distribution* is likely the most commonly-known distributions because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>:
+
+For the values of *μ* and *σ* in the legend, the Gaussian distribution looks like:
 
 
 
-
+The *Beta distribution* is one of the most useful distributions in statistics, particularly in the Bayesian model. Unfortunately, it has a complex form and is rather computation-intensive, often making it unfeasible from a pragmatic ML perspective. Many of its practical usages can be approximated by a Gaussian distribution.
 
 Linear Algebra
 ==============
