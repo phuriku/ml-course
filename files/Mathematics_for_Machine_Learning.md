@@ -28,13 +28,13 @@ Frequentist vs. Bayesian Statistics
 -----------------------------------
 There are 2 major ways to think about statistics: Frequentist and Bayesian. Frequentists infer distributions based only on the existing data. In contrast, Bayesians rely on a prior hypothesis that guides their initial assumptions and slowly change their view as new data comes in.
 
-In major league baseball, the median at-bat success ratio is about 0.26. If a baseball player has 3 hits and 27 outs at bat during his first 10 games, a frequentist will peg the player's future expected chances of a hit at 0.1 with a large potential variance. The Bayesian would use the league's median batting average as a prior hypothesis, and naturally modify this view as more data becomes available.
+In major league baseball, the median at-bat success ratio is about 0.27. If a baseball player has 2 hits and 18 outs at bat during his first few games, a frequentist will peg the player's future expected chances of a hit at 0.10 with a large potential variance. The Bayesian would use the league's median batting average of 0.27 as a prior hypothesis, and naturally modify this view as more data becomes available -- as such, the Bayesian is likely to think that the player's success ratio in the future is closer to 0.27 than 0.10 until further evidence indicates otherwise.
 
 Bayesian statistics is extremely important for our purposes, but will be explained as it becomes relevant. As a brief introduction to Bayesian statistics and the Beta distribution, please refer to [this elegant explanation](http://varianceexplained.org/statistics/beta_distribution_and_baseball/) that fleshes out the example above.
 
 Random Variables and Probability Distributions
 ----------------------------------------------
-A *random variable* is a variable that takes on values randomly, based on some probability distribution. A probability distribution is described using a *probability mass function* denoted by **P**. The notation **P**(*x* = 1) translates to: "the probability that the random variable *x* takes the value 1."
+A *random variable* is a variable that assumed values randomly based on some probability distribution. A probability distribution is described using a *probability mass function (PMF)* denoted by **P**. The notation **P**(*x* = 1) translates to: "the probability that the random variable *x* takes the value 1."
 
 A probability distribution can be either *continuous* or *discrete*. Discrete distributions take a finite (or countably-infinite) number of values, while continuous distributions take values along a continuous spectrum (such as ℝ).
 
@@ -69,16 +69,16 @@ However, if we have a standard deck of 52 cards and *x* and *y* are random varia
 Conditional Probability
 -----------------------
 
-Probabilities can also be calculated on the condition that another event happens. The probability that the random variable *x* = x *given* that *y* = y can be calculated using the formula:<p align="center">
+Probabilities can also be calculated on the condition that another event happens. The probability that the random variable *x* equals x *given* that *y* equals y can be calculated using the definition:<p align="center">
   <img src="https://i.imgur.com/DDIa5j9.png" height="32">
 </p>
 
 *Questions:*
-- This formula isn't useful when *x* and *y* are independent. Why?
+- This isn't a useful equation when *x* and *y* are independent. Why?
 
 Expectation, Variance, and Covariance
 -------------------------------------
-The *expectation* or *expected value* of a random variable is the mean value taken by its probability distribution. In symbols, the expected value of *x* is written 𝔼[x] = Σ<sub>x</sub>xP(x) for discrete distributions, and 𝔼[x] = ∫xP(x) for continuous distributions.
+The *expectation* or *expected value* of a random variable is the *mean value* taken by its probability distribution. In symbols, the expected value of *x* is written 𝔼[x] = Σ<sub>x</sub>xP(x) for discrete distributions, and 𝔼[x] = ∫xP(x) for continuous distributions.
 
 The *standard deviation* of a random variable *x* describes how widely the values of *x* fluctuate throughout the distribution. It is described by the average deviation from the mean: σ(x) = 𝔼[|x - 𝔼(x)|]. The *variance* σ<sup>2</sup>(x) is the standard deviation squared, and is more commonly used than σ(x).
 
@@ -101,7 +101,7 @@ The following image is the binomial distribution for *p* = 0.5, *n* = 15:<p alig
   <img src="https://i.imgur.com/przhOUO.png" height="180">
 </p>
 
-The *Gaussian distribution* or *normal distribution* is the most commonly-known distribution, primarily because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>: <p align="center">
+The *Gaussian distribution* or *normal distribution* is the most commonly-known distribution, primarily because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). Given mean *μ* and variance *σ*<sup>2</sup>, its probability mass function is: <p align="center">
   <img src="https://i.imgur.com/lMpXZX7.png" height="70">
 </p>
 
@@ -115,13 +115,13 @@ The *Beta distribution* is one of the most useful distributions in statistics, p
 
 Linear Algebra
 ==============
-Linear Algebra is a field of mathematics concerned with linear spaces, their elements, and linear transformations of those elements. To be specific, vector spaces are the linear spaces, vectors are the elements, and matrices are the linear transformations of vectors into other vectors.
+Linear Algebra is a field of mathematics concerned with linear spaces, their elements, and linear transformations of those elements. Specifically, vector spaces are the linear spaces, vectors are the elements, and matrices are the linear transformations of vectors into other vectors.
 
 We will mostly be concerned with matrices and vectors in ℝ<sup>n</sup>.
 
 Vector Spaces
 -------------
-As mentioned above, a vector space is a linear space composed of mathematical objects called *vectors* that satisfy certain properties. A vector space is defined over a space of *scalars* (usually ℝ or ℂ, the space of real or complex numbers respectively), which can be used to extend vectors in a certain direction.
+As mentioned above, a vector space is a linear space composed of mathematical objects called *vectors* that satisfy certain properties. A vector space is defined over a space of *scalars* (usually ℝ or ℂ, the space of real or complex numbers respectively), which can be used to extend, contract, or reverse the direction of vectors.
 
 Formally, a vector space *V* over a scalar space *S* must satisfy the following properties of linearity for all **u**,**v** ∈ *V* and all *c*,*d* ∈ *S*.
 1. **u** + **v** is in *V* (closed under addition)
@@ -166,7 +166,7 @@ A *linear transformation* **T** from ℝ<sup>n</sup> → ℝ<sup>m</sup> is a fu
 1. **T**(**u** + **v**) = **T**(**u**) + **T**(**v**)
 2. **T**(*c* · **u**) = c · **T**(**u**)
 
-In ℝ<sup>n</sup>, matrices *are* the linear transformations. A function is a linear transformation if and only if it can be represented as a matrix. In this schema, elements of ℝ<sup>n</sup> are represented as (1 x *n*)-dimensional column vectors in the form:<p align="center">
+In ℝ<sup>n</sup>, matrices *are* the linear transformations: a function is a linear transformation if and only if it can be represented as a matrix. In this schema, elements of ℝ<sup>n</sup> are represented as (*n* x 1)-dimensional column vectors in the form:<p align="center">
   <img src="https://i.imgur.com/dw9cKBO.png" height="100">
 </p>
 
@@ -174,26 +174,26 @@ Then if we have a matrix **A** represented by:<p align="center">
   <img src="https://imgur.com/3N0XAVx.png" height="100">
 </p>
 
-then matrix **A** applied to the vector **u** yields:<p align="center">
+, applying it to the vector **u** yields:<p align="center">
   <img src="https://i.imgur.com/aWhbl4u.png" height="100">
 </p>
 
-In words, matrices transform column vectors into column vectors, and this is the intuition behind their existence as linear operators on ℝ<sup>n</sup>.
+In words, matrices transform column vectors into column vectors, and this is the intuition behind their existence as linear operators on ℝ<sup>n</sup>, since column vectors represent the points of ℝ<sup>n</sup> themselves.
 
-If we are working within a fixed vector space ℝ<sup>n</sup>, only square matrices are valid as linear transformations, since an (*m* x *n*)-dimensional matrix multiplied by a (1 x *n*) column matrix yields a (1 x *m*)-dimensional column matrix. (Hence, *m* must equal *n* if we wish to confine ourself to *n*-dimensional space).
+If we want to confine ourselves to the vector space ℝ<sup>n</sup> with fixed *n*, only square matrices are valid, since an (*m* x *n*)-dimensional matrix multiplied by an (*n* x 1) column matrix yields an (*m* x 1)-dimensional column matrix. (Hence, *m* must equal *n* if we wish to confine ourselves to *n*-dimensional space).
 
 Matrix Operations
 -----------------
 
 Matrices can be added element-wise:<p align="center">
-  <img src="https://i.imgur.com/5zmKJpi.png" height="60">
+  <img src="https://imgur.com/H71LqcS.png" height="55">
 </p>
 
 The *transpose* of matrix **A** is denoted **A<sup>T</sup>**, and it inverts along the diagonal:<p align="center">
   <img src="https://i.imgur.com/xM1rLLp.png" height="130">
 </p>
 
-Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformations **A** and **B** are applied to a vector consecutively. For an (*n* x *m*)-dimensional matrix **A** and an (*m* x *p*)-dimensional matrix **B**, the formula is:<p align="center">
+Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformations **A** and **B** are applied to a vector consecutively. For an (*n* x *m*)-dimensional matrix **A** and an (*m* x *p*)-dimensional matrix **B**, the (*i* x *j*)-th entry in **A** **B** is:<p align="center">
   <img src="https://i.imgur.com/QwaOvWy.png" height="60">
 </p>
 
@@ -206,4 +206,4 @@ Matrices can be multiplied, and the product of matrices **A** and **B** is the l
   <img src="https://i.imgur.com/yhobstx.png" height="130">
 </p>
 
-An (*n* x *n*)-dimensional matrix **A** is said to have an inverse if there is a matrix **A<sup>-1</sup>** such that **A** **A<sup>-1</sup>** = **A<sup>-1</sup>** **A** = **I<sub>n</sub>**. Methods for computing an inverse are complex, but many computationally-efficient techniques exist. A matrix has an inverse only if its determinant is non-zero. (The *determinant* of a matrix is a real number that can be viewed as the scaling factor of the linear transformation corresponding to the matrix. It is a complex topic too involved for this brief introduction.)
+A square (*n* x *n*)-dimensional matrix **A** is said to have an inverse if there is a matrix **A<sup>-1</sup>** such that **A** **A<sup>-1</sup>** = **A<sup>-1</sup>** **A** = **I<sub>n</sub>**. Methods for computing an inverse are complex, but many computationally-efficient techniques exist. A matrix has an inverse only if its determinant is non-zero. (The *determinant* of a matrix is a real number that can be viewed as the scaling factor of the linear transformation corresponding to the matrix. It is a complex topic too involved for this brief introduction, but very important nonetheless.)

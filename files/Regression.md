@@ -37,18 +37,13 @@ Linear Regression
 -----------------
 *Linear regression* in ℝ is a type of regression that attempts to model data along the line *y = ax + b* for suitable *a* and *b* in ℝ. In our case of *m* data points in ℝ<sup>n</sup>, *a* is no longer in ℝ but is an (*m* x *n*)-dimensional matrix **A**, and *y* is an (*m* x 1) column matrix.
 
-To simplify things, let us ignore the intercept *b* for a moment. In this case, we have the equation
-<p align="center">**A** **x** = **y**.</p>
+To simplify things, let us ignore the intercept *b* for a moment. In this case, we have the equation **A** **x** = **y**.
 
 Before attempting to solve for **x** (noting above that **A** and **y** are provided by the training dataset), let's take a step back and ask what **x** actually is. **x** is an (*n* x 1)-dimensional column matrix. Remember that we are working in ℝ<sup>n</sup>, implying that our dataset is *n*-dimensional. Since the data point matrix **A** is multiplied by **x** to get the label **y**, **x** must be the *weight* applied to each dimension of the data point in order to apply the correct label.
 
-In other words, the first data point (*a<sub>11</sub>, a<sub>12</sub>, ..., a<sub>1n</sub>*) corresponds to the label *y<sub>1</sub>*. By the equation above, Σ<sub>k</sub>a<sub>1k</sub>x<sub>k</sub> = y<sub>1</sub>. The matrix equation above produces *m* of these equations, one for each data point. The *x<sub>k</sub>*'s must therefore be the weight applied to each dimension of the data point (and then summed) in order to get the desired label. 
+In other words, the first data point (*a<sub>11</sub>, a<sub>12</sub>, ..., a<sub>1n</sub>*) corresponds to the label *y<sub>1</sub>*. By the equation above, Σ<sub>k</sub>a<sub>1k</sub>x<sub>k</sub> = y<sub>1</sub>. The matrix equation above produces *m* of these equations, one for each data point. The *x<sub>k</sub>*'s must therefore be the weight applied to each dimension of the data point (and then summed) in order to get the desired label.
 
-In our situation where we have
-
-There exist many varieties
-
-Although we won't go into detail here
+Although we won't go into detail, this is a solvable equation when *n* = *m* as long as **A** and **A<sup>T</sup>** are both invertible. In fact, **x** = (**A** **A<sup>T</sup>**)<sup>**-1**</sup> **A<sup>T</sup>**. Even for *m* > *n* when samples outnumber unknowns, this equation can be shown to minimize the mean square error. A variety of other methods exist as well, although they are beyond this summary.
 
 
 The Iris Dataset
