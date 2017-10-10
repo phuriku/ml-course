@@ -8,11 +8,11 @@ Regression is one of the most important topics of machine learning, for its simp
 
 Training Data and Test Data
 ---------------------------
-When creating ML models, there are two sets of data: 1) *labeled data*, or data for which we already have a correct classification, and 2) newly arriving data, or *unlabeled data*, for which it is our responsibility to predict a classification. The labeled, pre-classified data from which we generate our model is called the *training dataset*, while the newly arriving data for which our generated model will be used to predict a classification is called the *test dataset*.
+When creating ML models, there are two sets of data: 1) *labeled data*, or data for which we already have a correct classification, and 2) newly arriving data, or *unlabeled data*, for which it is our responsibility to predict a classification. The labeled, pre-classified data from which we generate our model is called the *training dataset*. When a subset of the labeled data is separated and used for model performance testing instead of for training the model, the term *test dataset* is used.
 
 What is Regression?
 -------------------
-Regression is a modeling technique by which a predictive function is derived to classify all future incoming data. Specifically, if we have a training dataset in ℝ<sup>n</sup>, we derive a modeling function *f*: ℝ<sup>n</sup> → ℝ that approximates the training dataset. Test data lacking classification can be plugged into *f* for prediction.
+Regression is a modeling technique by which a predictive function is derived to classify all future incoming data. Specifically, if we have a training dataset in ℝ<sup>n</sup>, we derive a modeling function *f*: ℝ<sup>n</sup> → ℝ that approximates the training dataset. New data lacking classification can be plugged into *f* for prediction.
 
 The Loss Function
 ------------------
@@ -25,13 +25,19 @@ A loss function often used in ML is the *mean square error (MSE)*. Minimizing th
 
 Overfitting and Model Performance
 ---------------------------------
-A natural question arises when the subject comes up of training data being used to create a model. How do we measure how well the model performs on incoming (i.e. test) data? Since test data lacks classification, we cannot tell if the model is correctly classifying the test data or not.
+A natural question arises when the subject comes up of training data being used to create a model. How do we measure how well the model performs on incoming data? Since new data lacks classification, we cannot tell if the model is correctly classifying it or not.
 
 A naive first attempt might be to find a continuous function that minimizes the loss function. There are a few problems with this approach:
 1. There are many continuous functions that produce zero loss, and it would be impossible to choose between them. For example, if our training set is (*1*,*2*,*3*) with respective labels (*1*,*2*,*3*), we might choose *f(x) = x* as our predictive function since it produces zero loss. But a function that ascends from 1 to 10 and back down to 2 between 1 and 2 is also continuous with zero loss.
-2. To fit the data exactly or near-exactly with a continuous function is often quite easy. However, the fitting function is often extremely undulant and unnatural. A model should be simple, natural, and (for our purposes) not computation-intensive -- complex, twisting models rarely fit test data well.
+2. To fit the data exactly or near-exactly with a continuous function is often quite easy. However, the fitting function is often extremely undulant and unnatural. A model should be simple, natural, and (for our purposes) not computation-intensive -- complex, twisting models rarely fit incoming data well.
 
-The second point above describes *overfitting*. It minimizes the loss function for the training data, but at the cost of being a poor predictor for test data.
+The second point above describes *overfitting*. It minimizes the loss function for the training data, but at the cost of being a poor predictor for new data.
+
+The question then naturally arises: how can we tell that our model performs as expected and does not overfit the training data?
+
+The answer is surprisingly simple, and has already been hinted at above with the definition of the test dataset. We only have labels for the training data, but we can subdivide the training data into 10 equal parts, then use 9 of these parts for training the model and 1 part for testing the accuracy of the model. We can perform many accuracy tests by choosing different parts for training data and test data.
+
+For example, if we have 1000 data points, we can shuffle this data into 10 equal partitions of 100 data points each. For the first test, we can choose partitions 1-9 for training and partition 10 for testing. For the second test, we can choose partitions 2-10 for training and partition 1 for testing. We can then average these accuracy measurements across tests to make sure the algorithm for generating the model is suitably performant.
 
 Linear Regression
 -----------------
@@ -43,7 +49,7 @@ Before attempting to solve for **x** (noting above that **A** and **y** are prov
 
 In other words, the first data point (*a<sub>11</sub>, a<sub>12</sub>, ..., a<sub>1n</sub>*) corresponds to the label *y<sub>1</sub>*. By the equation above, Σ<sub>k</sub>a<sub>1k</sub>x<sub>k</sub> = y<sub>1</sub>. The matrix equation above produces *m* of these equations, one for each data point. The *x<sub>k</sub>*'s must therefore be the weight applied to each dimension of the data point (and then summed) in order to get the desired label.
 
-Although we won't go into detail, this is a solvable equation when *n* = *m* as long as **A** and **A<sup>T</sup>** are both invertible. In fact, **x** = (**A** **A<sup>T</sup>**)<sup>**-1**</sup> **A<sup>T</sup>**. Even for *m* > *n* when samples outnumber unknowns, this equation can be shown to minimize the mean square error. A variety of other methods exist as well, although they are beyond this summary.
+Although we won't go into detail, this is a solvable equation when *n* = *m* as long as **A** and **A<sup>T</sup>** are both invertible. In fact, **x** = (**A** **A<sup>T</sup>**)<sup>**-1**</sup> **A<sup>T</sup>**. Even for *m* > *n* when samples outnumber unknowns, this equation can be shown to minimize the mean square error. A variety of other methods exist as well, although they are beyond the scope of this summary.
 
 
 The Iris Dataset
