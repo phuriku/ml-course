@@ -9,15 +9,15 @@ Course Content
 ---------------------------------
 1. Introduction, Probability Theory, Linear Algebra
 2. Linear and Logistic Regression
-3. Regularization, Dimensionality Reduction
-4. Stochastic Gradient Descent
+3. Gradient Descent
+4. Regularization, Dimensionality Reduction
 5. Support Vector Machines
 6. Bayesian Approaches
 
 Reference Material
 ---------
-Most of the content of this course will be based on the book **Deep Learning** by *Goodfellow*, *Bengio*, and *Courville* published by MIT Press. The intent is to cover roughly Chapters 1-5, although some of the content won't be covered. Conversely, some of the content in the course won't be covered by the text. Regardless, I would highly recommend the book. You can purchase it from Amazon [here](https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/).
+Most of the content of this course will be based on the book **Deep Learning** by *Goodfellow*, *Bengio*, and *Courville* published by MIT Press. The intent is to cover roughly Chapters 1-5, although some textbook content won't be covered. Conversely, some of the content in the course isn't covered by the text. I would highly recommend purchasing the [book](https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/), as it is one of the highest-rated ML texts.
 
-Spark MLlib will be our development framework. Spark's official guide to MLlib is published [here](https://spark.apache.org/docs/latest/ml-guide.html). We may use Spark Structured Streaming by the end of the course. An API reference can be found [here](http://spark.apache.org/docs/latest/structured-streaming-programming-guide.html).
+Spark MLlib will be our development framework. Spark's official guide to MLlib is published [here](https://spark.apache.org/docs/latest/ml-guide.html). We may use Spark Structured Streaming by the end of the course, for which an API reference can be found [here](http://spark.apache.org/docs/latest/structured-streaming-programming-guide.html).
 
-Also feel free to clone my [*spark-ml* Github repository](https://github.com/phuriku/spark-ml), run the examples, and play around with the material. This may be the best route for those not yet unacquainted with *Scala* or *sbt*.
+Feel free to clone my [*spark-ml* repository](https://github.com/phuriku/spark-ml), run the examples, and play around with the material. This may be the best route for those yet unacquainted with *Scala*, *sbt*, and *Spark*.

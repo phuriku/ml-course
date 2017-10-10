@@ -86,7 +86,7 @@ The following image is the binomial distribution for *p* = 0.5, *n* = 15:<center
 </center>
 
 The *Gaussian distribution* or *normal distribution* is the most commonly-known distribution, primarily because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>: <center>
-  <img src="https://i.imgur.com/lMpXZX7.png" height="50">
+  <img src="https://i.imgur.com/lMpXZX7.png" height="60">
 </center>
 
 For the values of *μ* and *σ* in the legend, the Gaussian distribution looks like: <center>
@@ -159,17 +159,25 @@ If we are working within a fixed vector space ℝ<sup>n</sup>, only square matri
 Matrix Operations
 -----------------
 
-Matrices can be added element-wise:
+Matrices can be added element-wise:<center>
+  <img src="https://i.imgur.com/5zmKJpi.png" height="60">
+</center>
 
+The *transpose* of matrix **A** is denoted **A<sup>T</sup>**, and it inverts along the diagonal:<center>
+  <img src="https://i.imgur.com/xM1rLLp.png" height="120">
+</center>
 
+Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformation **A** is applied after linear transformation **B** on a vector. For an (*n* x *m*)-dimensional matrix **A** and an (*m* x *p*)-dimensional matrix **B**, the formula is:<center>
+  <img src="https://i.imgur.com/QwaOvWy.png" height="60">
+</center>
 
-The *transpose* of matrix
-
-is
-
-Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformation **A** is applied after linear transformation **B** on a vector space. The following matrix properties hold:
+ The following matrix properties hold:
 
 1. **A** (**B**+**C**) = **A B** + **A C** (distributive property)
 2. **A** (**B C**) = (**A B**) **C** (associative property)
 3. (**A B**)**<sup>T</sup>** = **B<sup>T</sup> A<sup>T</sup>**
-4. There is an identity matrix **I<sub>n</sub>** such that **I<sub>n</sub>u** = **u** for all vectors **u** ∈ ℝ<sup>n</sup>.
+4. There is an identity matrix **I<sub>n</sub>** such that **I<sub>n</sub>u** = **u** for all vectors **u** ∈ ℝ<sup>n</sup>:<center>
+  <img src="https://i.imgur.com/yhobstx.png" height="130">
+</center>
+
+An (*n* x *n*)-dimensional matrix **A** is said to have an inverse if there is a matrix **A<sup>-1</sup>** such that **A** **A<sup>-1</sup>** = **A<sup>-1</sup>** **A** = **I<sub>n</sub>**. Methods for computing an inverse are complex, but many computationally-efficient techniques exist. A matrix has an inverse only if its determinant is non-zero. (The *determinant* of a matrix is a real number that can be viewed as the scaling factor of the linear transformation corresponding to the matrix. It is a complex topic too involved for this brief introduction.)
