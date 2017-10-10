@@ -150,9 +150,19 @@ A *linear transformation* **T** from ℝ<sup>n</sup> → ℝ<sup>m</sup> is a fu
 1. **T**(**u** + **v**) = **T**(**u**) + **T**(**v**)
 2. **T**(*c* · **u**) = c · **T**(**u**)
 
-In ℝ<sup>n</sup>, matrices *are* the linear transformations. A function is a linear transformation if and only if it can be represented as a matrix. In this schema, elements of ℝ<sup>n</sup> are represented as column vectors in the form:
+In ℝ<sup>n</sup>, matrices *are* the linear transformations. A function is a linear transformation if and only if it can be represented as a matrix. In this schema, elements of ℝ<sup>n</sup> are represented as (1 x *n*)-dimensional column vectors in the form:<center>
+  <img src="https://i.imgur.com/dw9cKBO.png" height="100">
+</center>
 
-Then if we have a matrix
+Then if we have a matrix **A** represented by:<center>
+  <img src="https://i.imgur.com/4RkUQjW.png" height="100">
+</center>
+
+then matrix **A** applied to the vector **u** yields:<center>
+  <img src="https://i.imgur.com/aWhbl4u.png" height="100">
+</center>
+
+The point of this discussion is that matrices transform column vectors into column vectors, and this is the intuitive behind their existence as linear operators on ℝ<sup>n</sup>.
 
 If we are working within a fixed vector space ℝ<sup>n</sup>, only square matrices are valid as linear transformations, since an (*m* x *n*)-dimensional matrix multiplied by a (1 x *n*) column matrix yields a (1 x *m*)-dimensional column matrix. (Hence, *m* must equal *n* if we wish to confine ourself to *n*-dimensional space).
 
@@ -167,7 +177,7 @@ The *transpose* of matrix **A** is denoted **A<sup>T</sup>**, and it inverts alo
   <img src="https://i.imgur.com/xM1rLLp.png" height="120">
 </center>
 
-Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformation **A** is applied after linear transformation **B** on a vector. For an (*n* x *m*)-dimensional matrix **A** and an (*m* x *p*)-dimensional matrix **B**, the formula is:<center>
+Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformations **A** and **B** are applied to a vector consecutively. For an (*n* x *m*)-dimensional matrix **A** and an (*m* x *p*)-dimensional matrix **B**, the formula is:<center>
   <img src="https://i.imgur.com/QwaOvWy.png" height="60">
 </center>
 
