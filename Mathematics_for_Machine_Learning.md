@@ -49,26 +49,26 @@ Joint Probability Distributions and Independence
 
 Probability distributions can model many variables at the same time. A *joint distribution* **P**(*x* = 1, *y* = 0) denotes the joint probability that the random variable *x* is 1 and *y* is 0 simultaneously.
 
-We say that two random variables *x* and *y* are *independent* if their joint probability distribution is the product of the two distributions taken independently:<center>
+We say that two random variables *x* and *y* are *independent* if their joint probability distribution is the product of the two distributions taken independently:<p align="center">
   <img src="https://i.imgur.com/qCE0UpX.png" height="24">
-</center>
+</p>
 
-For example, if a random variable *x* models the toss of a 6-sided die, while *y* models the flip of a coin, then these are clearly independent, *e.g.* <center>
+For example, if a random variable *x* models the toss of a 6-sided die, while *y* models the flip of a coin, then these are clearly independent, *e.g.* <p align="center">
   <img src="https://i.imgur.com/mJSGPG2.png" height="26">
-</center>
+</p>
 
-However, if we have a standard deck of 52 cards and *x* and *y* are random variables representing a draw from the same deck, then these are not independent distributions, because the probability of both drawing an ace is <center>
+However, if we have a standard deck of 52 cards and *x* and *y* are random variables representing a draw from the same deck, then these are not independent distributions, because the probability of both drawing an ace is <p align="center">
   <img src="https://i.imgur.com/1S2Rd1a.png" height="27">
-</center>, whereas <center>
+</p>, whereas <p align="center">
   <img src="https://i.imgur.com/AMGIibd.png" height="26">
-</center>
+</p>
 
 Conditional Probability
 -----------------------
 
-Probabilities can also be calculated on the condition that another event happens. The probability that the random variable *x* = x *given* that *y* = y can be calculated using the formula:<center>
+Probabilities can also be calculated on the condition that another event happens. The probability that the random variable *x* = x *given* that *y* = y can be calculated using the formula:<p align="center">
   <img src="https://i.imgur.com/DDIa5j9.png" height="32">
-</center>
+</p>
 
 *Questions:*
 - This formula isn't useful when *x* and *y* are independent. Why?
@@ -94,17 +94,17 @@ The *Binomial distribution* is the Bernoulli distribution extended over *n* turn
 3. **P**(x = *m*) = (*n*,*m*) *p*<sup>*m*</sup>(1-*p*)<sup>*n*-*m*</sup>
 3. 𝔼[x] = nφ
 
-The following image is the binomial distribution for *p* = 0.5, *n* = 15:<center>
+The following image is the binomial distribution for *p* = 0.5, *n* = 15:<p align="center">
   <img src="https://i.imgur.com/przhOUO.png" height="180">
-</center>
+</p>
 
-The *Gaussian distribution* or *normal distribution* is the most commonly-known distribution, primarily because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>: <center>
+The *Gaussian distribution* or *normal distribution* is the most commonly-known distribution, primarily because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>: <p align="center">
   <img src="https://i.imgur.com/lMpXZX7.png" height="60">
-</center>
+</p>
 
-For the values of *μ* and *σ* in the legend, the Gaussian distribution looks like: <center>
+For the values of *μ* and *σ* in the legend, the Gaussian distribution looks like: <p align="center">
   <img src="https://i.imgur.com/53KA7PA.png" height="200">
-</center>
+</p>
 
 The Gaussian distribution can be used to approximate the binomial distribution with parameters *μ* = *np* and *σ*<sup>2</sup> = *np*(1-*p*).
 
@@ -163,17 +163,17 @@ A *linear transformation* **T** from ℝ<sup>n</sup> → ℝ<sup>m</sup> is a fu
 1. **T**(**u** + **v**) = **T**(**u**) + **T**(**v**)
 2. **T**(*c* · **u**) = c · **T**(**u**)
 
-In ℝ<sup>n</sup>, matrices *are* the linear transformations. A function is a linear transformation if and only if it can be represented as a matrix. In this schema, elements of ℝ<sup>n</sup> are represented as (1 x *n*)-dimensional column vectors in the form:<center>
+In ℝ<sup>n</sup>, matrices *are* the linear transformations. A function is a linear transformation if and only if it can be represented as a matrix. In this schema, elements of ℝ<sup>n</sup> are represented as (1 x *n*)-dimensional column vectors in the form:<p align="center">
   <img src="https://i.imgur.com/dw9cKBO.png" height="100">
-</center>
+</p>
 
-Then if we have a matrix **A** represented by:<center>
+Then if we have a matrix **A** represented by:<p align="center">
   <img src="https://imgur.com/3N0XAVx.png" height="100">
-</center>
+</p>
 
-then matrix **A** applied to the vector **u** yields:<center>
+then matrix **A** applied to the vector **u** yields:<p align="center">
   <img src="https://i.imgur.com/aWhbl4u.png" height="100">
-</center>
+</p>
 
 The point of this discussion is that matrices transform column vectors into column vectors, and this is the intuitive behind their existence as linear operators on ℝ<sup>n</sup>.
 
@@ -182,25 +182,25 @@ If we are working within a fixed vector space ℝ<sup>n</sup>, only square matri
 Matrix Operations
 -----------------
 
-Matrices can be added element-wise:<center>
+Matrices can be added element-wise:<p align="center">
   <img src="https://i.imgur.com/5zmKJpi.png" height="60">
-</center>
+</p>
 
-The *transpose* of matrix **A** is denoted **A<sup>T</sup>**, and it inverts along the diagonal:<center>
+The *transpose* of matrix **A** is denoted **A<sup>T</sup>**, and it inverts along the diagonal:<p align="center">
   <img src="https://i.imgur.com/xM1rLLp.png" height="120">
-</center>
+</p>
 
-Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformations **A** and **B** are applied to a vector consecutively. For an (*n* x *m*)-dimensional matrix **A** and an (*m* x *p*)-dimensional matrix **B**, the formula is:<center>
+Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformations **A** and **B** are applied to a vector consecutively. For an (*n* x *m*)-dimensional matrix **A** and an (*m* x *p*)-dimensional matrix **B**, the formula is:<p align="center">
   <img src="https://i.imgur.com/QwaOvWy.png" height="60">
-</center>
+</p>
 
  The following matrix properties hold:
 
 1. **A** (**B**+**C**) = **A B** + **A C** (distributive property)
 2. **A** (**B C**) = (**A B**) **C** (associative property)
 3. (**A B**)**<sup>T</sup>** = **B<sup>T</sup> A<sup>T</sup>**
-4. There is an identity matrix **I<sub>n</sub>** such that **I<sub>n</sub>u** = **u** for all vectors **u** ∈ ℝ<sup>n</sup>:<center>
+4. There is an identity matrix **I<sub>n</sub>** such that **I<sub>n</sub>u** = **u** for all vectors **u** ∈ ℝ<sup>n</sup>:<p align="center">
   <img src="https://i.imgur.com/yhobstx.png" height="130">
-</center>
+</p>
 
 An (*n* x *n*)-dimensional matrix **A** is said to have an inverse if there is a matrix **A<sup>-1</sup>** such that **A** **A<sup>-1</sup>** = **A<sup>-1</sup>** **A** = **I<sub>n</sub>**. Methods for computing an inverse are complex, but many computationally-efficient techniques exist. A matrix has an inverse only if its determinant is non-zero. (The *determinant* of a matrix is a real number that can be viewed as the scaling factor of the linear transformation corresponding to the matrix. It is a complex topic too involved for this brief introduction.)
