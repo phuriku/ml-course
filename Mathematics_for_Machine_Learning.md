@@ -4,25 +4,25 @@ There are a few mathematical pre-requisites for machine learning, including elem
 
 What is Machine Learning?
 -------------------------
-Most of machine learning can be classified as basic applied statistics. Specifically, machine learning consists of modeling existing datasets so that predictions and classifications can be made for future data points without human intervention. As such, most of the mathematics behind machine learning involves some degree of linear algebra, probability, and statistics.
+Most of machine learning can be classified as applied statistics. Specifically, machine learning consists of modeling existing datasets so that predictions can be made for future data without human intervention. Consequently, most of the mathematics behind machine learning involves some degree of linear algebra, probability, and statistics.
 
 Supervised vs. Unsupervised Learning
 ------------------------------------
-Machine learning mostly consists of generating mathematical models for pre-existing datasets so that future data can be classified. In this respect, there are two types of machine learning problems: 1) *supervised learning*, where a correct label is known and assigned to each point in an existing dataset that can help to train a mathematical model, and 2) *unsupervised learning*, where the existing dataset is raw in the purest sense.
+Machine learning mostly consists of generating mathematical models for pre-existing datasets so that future data can be classified. In this respect, there are two types of machine learning problems: 1) *supervised learning*, where a correct label is known and assigned to each point in an existing dataset, and 2) *unsupervised learning*, where the existing dataset is raw in the purest sense.
 
-An example of supervised learning would be classifying pictures of dogs and cats using a dataset of 100 pictures for which we have already classified each picture as a dog or a cat. Using this pre-sorted data, a model can be derived to make predictions about whether future pictures are dogs or cats.
+An example of supervised learning is classifying pictures of dogs and cats using a dataset of 100 pictures for which we have already manually classified each picture as a dog or a cat. Using this pre-labeled data, a model can be derived to make predictions about whether other pictures are of dogs or of cats.
 
-An example of unsupervised learning would be clustering points in a dataset. There are no classifications for the existing data, only raw data points. Using mathematical algorithms, we can divide data points into natural clusters.
+An example of unsupervised learning is clustering points in a dataset. There are no classifications for the existing data, only raw data points. Using mathematical algorithms, we can separate data points into natural clusters.
 
 Offline vs. Online Learning
 ---------------------------
 There is also a dichotomy in ML between offline and online learning.
 
-Offline learning uses a *static* dataset to generate a model that remains unmodified even as new data comes in. On the other hand, online learning produces a dynamic model that is constantly adjusting itself with new data points. Online learning tends to be more complex and computation-intensive than offline learning.
+*Offline learning* uses a *static* dataset to generate a model that remains unmodified even as new data comes in. On the other hand, *online learning* produces a dynamic model that constantly adjusts itself with new data points. Online learning tends to be more complex and computation-intensive than offline learning.
 
 Probability & Statistics
 ========================
-As in the case of almost any modeling based on limited datasets, there is often a large degree of uncertainty in ML. This uncertainty must be quantified, and probability theory is the tool used to do it.
+As in the case of almost any modeling based on limited datasets, there is often a large degree of uncertainty in ML. This uncertainty must be quantified, and probability theory is the tool used to do so.
 
 Frequentist vs. Bayesian Statistics
 -----------------------------------
@@ -44,21 +44,34 @@ In a continuous distribution, probabilities are not taken over points, but over 
 
 In the discrete case, probabilities of individual values must sum to 1: Σ<sub>x</sub>**P**(x) = 1. In the continuous case, this is an integral: ∫**P**(x) = 1. This implies that for discrete distributions, the probability of an individual value cannot exceed 1, whereas for continuous distributions, the probability of the value lying in a specified *range* cannot exceed 1.
 
-Conditional Probability
------------------------
-
-
 Joint Probability Distributions and Independence
 ------------------------------------------------
 
 Probability distributions can model many variables at the same time. A *joint distribution* **P**(*x* = 1, *y* = 0) denotes the joint probability that the random variable *x* is 1 and *y* is 0 simultaneously.
 
-We say that two random variables *x* and *y* are *independent* if their joint probability distribution is the product of the two distributions taken independently:<center>**P**(*x* = x, *y* = y) = **P**(*x* = x) · **P**(*y* = y).</center>
+We say that two random variables *x* and *y* are *independent* if their joint probability distribution is the product of the two distributions taken independently:<center>
+  <img src="https://i.imgur.com/qCE0UpX.png" height="24">
+</center>
 
-For example, if a random variable *x* models the toss of a 6-sided die, while *y* models the flip of a coin, then these are clearly independent, *e.g.* <center>**P**(*x* = 3, *y* = heads) = **P**(*x* = 3) · **P**(*y* = heads) = (1/6) · (1/2) = 1/12.</center>
+For example, if a random variable *x* models the toss of a 6-sided die, while *y* models the flip of a coin, then these are clearly independent, *e.g.* <center>
+  <img src="https://i.imgur.com/mJSGPG2.png" height="26">
+</center>
 
-However,
+However, if we have a standard deck of 52 cards and *x* and *y* are random variables representing a draw from the same deck, then these are not independent distributions, because the probability of both drawing an ace is <center>
+  <img src="https://i.imgur.com/1S2Rd1a.png" height="27">
+</center>, whereas <center>
+  <img src="https://i.imgur.com/AMGIibd.png" height="26">
+</center>
 
+Conditional Probability
+-----------------------
+
+Probabilities can also be calculated on the condition that another event happens. The probability that the random variable *x* = x *given* that *y* = y can be calculated using the formula:<center>
+  <img src="https://i.imgur.com/DDIa5j9.png" height="32">
+</center>
+
+*Questions:*
+- This formula isn't useful when *x* and *y* are independent. Why?
 
 Expectation, Variance, and Covariance
 -------------------------------------
@@ -155,7 +168,7 @@ In ℝ<sup>n</sup>, matrices *are* the linear transformations. A function is a l
 </center>
 
 Then if we have a matrix **A** represented by:<center>
-  <img src="https://i.imgur.com/4RkUQjW.png" height="100">
+  <img src="https://imgur.com/3N0XAVx.png" height="100">
 </center>
 
 then matrix **A** applied to the vector **u** yields:<center>
