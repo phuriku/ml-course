@@ -99,7 +99,7 @@ The following image is the binomial distribution for *p* = 0.5, *n* = 15:<p alig
 </p>
 
 The *Gaussian distribution* or *normal distribution* is the most commonly-known distribution, primarily because it has a tendency to describe naturally-occurring distributions (*c.f.* the Central Limit Theorem). It is described by mean *μ* and variance *σ*<sup>2</sup>: <p align="center">
-  <img src="https://i.imgur.com/lMpXZX7.png" height="60">
+  <img src="https://i.imgur.com/lMpXZX7.png" height="70">
 </p>
 
 For the values of *μ* and *σ* in the legend, the Gaussian distribution looks like: <p align="center">
@@ -175,7 +175,7 @@ then matrix **A** applied to the vector **u** yields:<p align="center">
   <img src="https://i.imgur.com/aWhbl4u.png" height="100">
 </p>
 
-The point of this discussion is that matrices transform column vectors into column vectors, and this is the intuitive behind their existence as linear operators on ℝ<sup>n</sup>.
+In words, matrices transform column vectors into column vectors, and this is the intuition behind their existence as linear operators on ℝ<sup>n</sup>.
 
 If we are working within a fixed vector space ℝ<sup>n</sup>, only square matrices are valid as linear transformations, since an (*m* x *n*)-dimensional matrix multiplied by a (1 x *n*) column matrix yields a (1 x *m*)-dimensional column matrix. (Hence, *m* must equal *n* if we wish to confine ourself to *n*-dimensional space).
 
@@ -187,7 +187,7 @@ Matrices can be added element-wise:<p align="center">
 </p>
 
 The *transpose* of matrix **A** is denoted **A<sup>T</sup>**, and it inverts along the diagonal:<p align="center">
-  <img src="https://i.imgur.com/xM1rLLp.png" height="120">
+  <img src="https://i.imgur.com/xM1rLLp.png" height="130">
 </p>
 
 Matrices can be multiplied, and the product of matrices **A** and **B** is the linear transformation that results when linear transformations **A** and **B** are applied to a vector consecutively. For an (*n* x *m*)-dimensional matrix **A** and an (*m* x *p*)-dimensional matrix **B**, the formula is:<p align="center">
