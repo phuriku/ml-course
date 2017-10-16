@@ -34,68 +34,68 @@ Bayesian statistics is extremely important for our purposes, but will be explain
 
 Random Variables and Probability Distributions
 ----------------------------------------------
-A *random variable* is a variable that assumed values randomly based on some probability distribution. A probability distribution is described using a *probability mass function (PMF)* denoted by **P**. The notation **P**(*x* = 1) translates to: "the probability that the random variable *x* takes the value 1."
+A *random variable* is a variable that assumes values randomly based on some probability distribution. A probability distribution is denoted denoted by **P**. The notation **P**(x = 1) translates to: "the probability that the random variable x takes the value 1."
 
-A probability distribution can be either *continuous* or *discrete*. Discrete distributions take a finite (or countably-infinite) number of values, while continuous distributions take values along a continuous spectrum (such as ℝ).
+A probability distribution can be either *continuous* or *discrete*. Discrete distributions take a finite (or countably-infinite) number of values, while continuous distributions take values along a continuous spectrum (such as ℝ). The technical term for **P** is *probability mass function* (*PMF*) in the case of a discrete probability distribution, and *probability density function* (*PDF*) in  the case of a continuous distribution.
 
 For example, the uniform distribution (where *n* values each occur at a probability of 1/*n*) is discrete. A fair dice roll is an example of a uniform distribution with *n*=6. The normal distribution, covered later, is a continuous distribution.
 
-In a continuous distribution, probabilities are not taken over points, but over *ranges*. For example, the probability that a random variable *x* takes values between 1 and 2 is described by ∫<sub>1</sub><sup>2</sup>**P**(x).
+In a continuous distribution, probabilities are not taken over points, but over *ranges*. For example, the probability that a random variable x takes values between 1 and 2 is described by ∫<sub>1</sub><sup>2</sup>**P**(x).
 
 In the discrete case, probabilities of individual values must sum to 1: Σ<sub>x</sub>**P**(x) = 1. In the continuous case, this is an integral: ∫**P**(x) = 1. This implies that for discrete distributions, the probability of an individual value cannot exceed 1, whereas for continuous distributions, the probability of the value lying in a specified *range* cannot exceed 1.
 
 Joint Probability Distributions and Independence
 ------------------------------------------------
 
-Probability distributions can model many variables at the same time. A *joint distribution* **P**(*x* = 1, *y* = 0) denotes the joint probability that the random variable *x* is 1 and *y* is 0 simultaneously.
+Probability distributions can model many variables at the same time. A *joint distribution* **P**(x = 1, y = 0) denotes the joint probability that the random variable x is 1 and y is 0 simultaneously.
 
-We say that two random variables *x* and *y* are *independent* if their joint probability distribution is the product of the two distributions taken independently:<p align="center">
-  <img src="https://i.imgur.com/qCE0UpX.png" height="24">
+We say that two random variables x and y are *independent* if their joint probability distribution is the product of the two distributions taken independently:<p align="center">
+  <img src="https://imgur.com/Oe1pz2i.png" height="28">
 </p>
 
-For example, if a random variable *x* models the toss of a 6-sided die, while *y* models the flip of a coin, then these are clearly independent, *e.g.* <p align="center">
-  <img src="https://i.imgur.com/mJSGPG2.png" height="26">
+For example, if a random variable x models the toss of a 6-sided die, while y models the flip of a coin, then these are clearly independent, *e.g.* <p align="center">
+  <img src="https://imgur.com/UtiEOuE.png" height="28">
 </p>
 
-However, if we have a standard deck of 52 cards and *x* and *y* are random variables representing a draw from the same deck, then these are not independent distributions, because the probability of both drawing an ace is <p align="center">
-  <img src="https://i.imgur.com/1S2Rd1a.png" height="27">
+However, if we have a standard deck of 52 cards and x and y are random variables representing a draw from the same deck, then these are not independent distributions, because the probability of both drawing an ace is <p align="center">
+  <img src="https://imgur.com/2bheoHX.png" height="27">
 </p>, whereas <p align="center">
-  <img src="https://i.imgur.com/AMGIibd.png" height="26">
+  <img src="https://imgur.com/FXKxyG5.png" height="26">
 </p>
 
 *Questions*:
-1. Why is the joint probability of the draws above 1/13 · 1/12?
+1. Why is the joint probability of the draws above (1/13) · (3/51)?
 
 Conditional Probability
 -----------------------
 
-Probabilities can also be calculated on the condition that another event happens. The probability that the random variable *x* equals x *given* that *y* equals y can be calculated using the definition:<p align="center">
-  <img src="https://i.imgur.com/DDIa5j9.png" height="32">
+Probabilities can also be calculated on the condition that another event happens. The probability that the random variable x equals *x* *given* that y equals *y* can be calculated using the definition:<p align="center">
+  <img src="https://imgur.com/OCvmbWb.png" height="52">
 </p>
 
 *Questions:*
-- This isn't a useful equation when *x* and *y* are independent. Why?
+- This isn't a useful equation when x and y are independent. Why?
 
 Expectation, Variance, and Covariance
 -------------------------------------
-The *expectation* or *expected value* of a random variable is the *mean value* taken by its probability distribution. In symbols, the expected value of *x* is written 𝔼[x] = Σ<sub>x</sub>xP(x) for discrete distributions, and 𝔼[x] = ∫xP(x) for continuous distributions.
+The *expectation* or *expected value* of a random variable is the *mean value* taken by its probability distribution. In symbols, the expected value of x is written 𝔼[x] = Σ<sub>x</sub>xP(x) for discrete distributions, and 𝔼[x] = ∫xP(x) for continuous distributions.
 
-The *standard deviation* of a random variable *x* describes how widely the values of *x* fluctuate throughout the distribution. It is described by the average deviation from the mean: σ(x) = 𝔼[|x - 𝔼(x)|]. The *variance* σ<sup>2</sup>(x) is the standard deviation squared, and is more commonly used than σ(x).
+The *variance* of a random variable x describes how widely the values of x fluctuate throughout the distribution. It is described by the average squared deviation from the mean: σ<sup>2</sup>(x) = 𝔼[(x - 𝔼(x))<sup>2</sup>]. The *standard deviation* σ is defined as the square root of the variance.
 
-The *covariance* between two random variables *x* and *y* describes how they vary in relation to each other: Cov(x,y) = 𝔼[(x - 𝔼(x))(y - 𝔼(y))]. The covariance is positive for variables that fluctuate together, negative for variables that fluctuate inversely to each other, and approximately 0 for variables with little similarity.
+The *covariance* between two random variables x and y describes how they vary in relation to each other: Cov(x,y) = 𝔼[(x - 𝔼(x))(y - 𝔼(y))]. The covariance is positive for variables that fluctuate together, negative for variables that fluctuate inversely to each other, and approximately 0 for variables with little similarity.
 
 Common Probability Distributions
 --------------------------------
 The *Bernoulli distribution* is a distribution controlled by a single parameter *p* between 0 and 1, which represents the chances of a success. It has the following properties:
-1. **P**(*x* = 1) = *p*
-2. **P**(*x* = 0) = 1 - *p*
-3. 𝔼[*x*] = *p*
+1. **P**(x = 1) = *p*
+2. **P**(x = 0) = 1 - *p*
+3. 𝔼[x] = *p*
 
 The *Binomial distribution* is the Bernoulli distribution extended over *n* turns. It represents the probability of *m* successes over *n* turns, where each turn has a success probability of *p*. It has the following properties:
-1. **P**(*x* = *n*) = *p*<sup>*n*</sup>
-2. **P**(*x* = 0) = (1-*p*)<sup>*n*</sup>
-3. **P**(*x* = *m*) = (*n*,*m*) *p*<sup>*m*</sup>(1-*p*)<sup>*n*-*m*</sup>
-3. 𝔼[*x*] = *np*
+1. **P**(x = *n*) = *p*<sup>*n*</sup>
+2. **P**(x = 0) = (1-*p*)<sup>*n*</sup>
+3. **P**(x = *m*) = (*n*,*m*) *p*<sup>*m*</sup>(1-*p*)<sup>*n*-*m*</sup>
+3. 𝔼[x] = *np*
 
 The following image is the binomial distribution for *p* = 0.5, *n* = 15:<p align="center">
   <img src="https://i.imgur.com/przhOUO.png" height="180">
@@ -171,7 +171,7 @@ In ℝ<sup>n</sup>, matrices *are* the linear transformations: a function is a l
 </p>
 
 Then if we have a matrix **A** represented by:<p align="center">
-  <img src="https://imgur.com/3N0XAVx.png" height="100">
+  <img src="https://imgur.com/1LGjz7V.png" height="100">
 </p>
 
 , applying it to the vector **u** yields:<p align="center">
