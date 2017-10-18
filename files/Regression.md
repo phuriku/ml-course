@@ -1,6 +1,3 @@
-<span style="color:red">THIS PAGE IS PENDING COMPLETION!</span>
---
-
 Introduction to Regression
 ==========================
 
@@ -16,14 +13,14 @@ Regression is a modeling technique by which a predictive function is derived to 
 
 The Loss Function
 ------------------
-When we create a model from the training data, how closely does the *training data* fit the model? It is the responsibility of the *loss function*, or *cost function*, **L**(f), to inform us how much information is lost (on the training set) by using the predictive model *f*.
+When we create a model from the training data, how closely does the *training data* fit the model? It is the responsibility of the *loss function*, or *cost function*, **L**(f), to inform us how much information is lost (on the training set) by using the predictive model *f*. As the reader can probably guess, the training models with machine learning often involves a goal of minimizing the loss function.
 
 A loss function often used in ML is the *mean square error (MSE)*. Minimizing the MSE is a very common technique to perform linear regression. If *x<sub>i</sub>* represents the training dataset of *n* points with respective classifications *y<sub>i</sub>*, the mean square error for the model *f* is defined to be (1/*n*) Σ<sub>*n*</sub> [f(*x<sub>i</sub>*) - *y<sub>i</sub>*)]<sup>2</sup>.
 
 *Questions:*
 1. A training set is composed of points (*1*,*2*,*3*) with respective labels of (*2*,*3*,*6*). What is MSE(*f*) for *f(x) = 2x*?
 
-Overfitting and Model Performance
+Model Performance and Overfitting
 ---------------------------------
 A natural question arises when the subject comes up of training data being used to create a model. How do we measure how well the model performs on incoming data? Since new data lacks classification, we cannot tell if the model is correctly classifying it or not.
 
@@ -31,11 +28,29 @@ A naive first attempt might be to find a continuous function that minimizes the 
 1. There are many continuous functions that produce zero loss, and it would be impossible to choose between them. For example, if our training set is (*1*,*2*,*3*) with respective labels (*1*,*2*,*3*), we might choose *f(x) = x* as our predictive function since it produces zero loss. But a function that ascends from 1 to 10 and back down to 2 between 1 and 2 is also continuous with zero loss.
 2. To fit the data exactly or near-exactly with a continuous function is often quite easy. However, the fitting function is often extremely undulant and unnatural. A model should be simple, natural, and (for our purposes) not computation-intensive -- complex, twisting models rarely fit incoming data well.
 
-The second point above describes *overfitting*. It minimizes the loss function for the training data, but at the cost of being a poor predictor for new data.
+*Example*
 
-The question then naturally arises: how can we tell that our model performs as expected and does not overfit the training data?
+We have a training dataset composed of 3 points: *(-0.125,-0.25)*, *(-0.25,-0.5)*, and *(-0.7, -0.75)*.<p align="center">
+  <img src="https://imgur.com/hrGriGK.png" height="130">
+</p>
 
-The answer is surprisingly simple, and has already been hinted at above with the definition of the test dataset. We only have labels for the training data, but we can subdivide the training data into 10 equal parts, then use 9 of these parts for training the model and 1 part for testing the accuracy of the model. We can perform many accuracy tests by choosing different parts for training data and test data.
+We can use two separate approaches to create a model by minimizing the MSE: *a*) Minimize the MSE over all polynomial functions, *b*) Minimize the MSE over all linear functions.
+
+By approach *a*), we can minimize the MSE with the function *y = 3x<sup>6</sup>+2x<sup>4</sup>-x<sup>3</sup>-x<sup>2</sup>+2x*. In fact, the MSE becomes 0 with this function.<p align="center">
+  <img src="https://imgur.com/uZ7BB6b.png" height="135">
+</p>
+
+By approach *b*, we can minimize the MSE with the function *y = 0.8x - 0.2*. While the MSE is low here, it is not 0.<p align="center">
+  <img src="https://imgur.com/9CWYGXV.png" height="130">
+</p>
+
+Which model is better? To answer this question, we should ask ourselves how well each model *generalizes* to test data. If *x=-1* is an incoming data point, which makes more sense as a predicted value: *y=3* or *y=-1*? The first corresponds to the polynomial solution, while the latter corresponds to the linear solution. The difference is even more pronounced as we diverge from the range between -1 and 0.
+
+The example above describes the concept of *overfitting*. A more complex function minimizes the loss function for the training data, but at the cost of being a poor predictor for new data. The way to avoid overfitting is by constraining solutions to a *hypothesis space* of functions. In the case above, it may have been wise to choose the space of linear functions as our hypothesis space. The study of techniques for narrowing the hypothesis space and avoiding overfitting is called *regularization*, to be covered later.
+
+The question then naturally arises: from a testing perspective, how can we test if our model performs as expected and does not overfit the training data?
+
+The answer is surprisingly simple, and has already been hinted at above with the definition of the test dataset. We only have labels for the training data, but we can subdivide the training data into 10 equal parts, then use 1 of these parts for training the model and 1 of these parts for testing the accuracy of the model. We can then switch out the training and test partitions and re-do the accuracy tests.
 
 For example, if we have 1000 data points, we can shuffle this data into 10 equal partitions of 100 data points each. For the first test, we can choose partitions 1-9 for training and partition 10 for testing. For the second test, we can choose partitions 2-10 for training and partition 1 for testing. We can then average these accuracy measurements across tests to make sure the algorithm for generating the model is suitably performant.
 
@@ -50,6 +65,12 @@ Before attempting to solve for **x** (noting above that **A** and **y** are prov
 In other words, the first data point (*a<sub>11</sub>, a<sub>12</sub>, ..., a<sub>1n</sub>*) corresponds to the label *y<sub>1</sub>*. By the equation above, Σ<sub>k</sub>a<sub>1k</sub>x<sub>k</sub> = y<sub>1</sub>. The matrix equation above produces *m* of these equations, one for each data point. The *x<sub>k</sub>*'s must therefore be the weight applied to each dimension of the data point (and then summed) in order to get the desired label.
 
 Although we won't go into detail, this is a solvable equation when *n* = *m* as long as **A** and **A<sup>T</sup>** are both invertible. In fact, **x** = (**A** **A<sup>T</sup>**)<sup>**-1**</sup> **A<sup>T</sup>**. Even for *m* > *n* when samples outnumber unknowns, this equation can be shown to minimize the mean square error. A variety of other methods exist as well, although they are beyond the scope of this summary.
+
+Logistic Regression
+-------------------
+Linear regression is a form of *continuous* regression: we map test data into a continuous range. We can also do a form *discrete* regression, which is done via logistic regression.
+
+Logistic regression is a binary classification method -- a point can be classified into one of two categories with respective probabilities *p* and *1-p*.
 
 
 The Iris Dataset

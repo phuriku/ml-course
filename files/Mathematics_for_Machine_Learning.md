@@ -207,3 +207,9 @@ Matrices can be multiplied, and the product of matrices **A** and **B** is the l
 </p>
 
 A square (*n* x *n*)-dimensional matrix **A** is said to have an inverse if there is a matrix **A<sup>-1</sup>** such that **A** **A<sup>-1</sup>** = **A<sup>-1</sup>** **A** = **I<sub>n</sub>**. Methods for computing an inverse are complex, but many computationally-efficient techniques exist. A matrix has an inverse only if its determinant is non-zero. (The *determinant* of a matrix is a real number that can be viewed as the scaling factor of the linear transformation corresponding to the matrix. It is a complex topic too involved for this brief introduction, but very important nonetheless.)
+
+The Gradient
+------------
+In machine learning, we often want to perform optimization by minimizing a function over a given domain. In calculus, this is done by taking the derivative *d/dx*, setting it to zero, and solving for *x*. If such a point is found, then it can be determined as a minimum, maximum, or saddle point by checking whether the second derivative *d<sup>2</sup>/dx<sup>2</sup>* is positive, negative, or zero (respectively).
+
+In the case when the domain is *n*-dimensional, i.e. *f*: ℝ<sup>*n*</sup> → ℝ, this is accomplished via the generalized derivative, the *gradient*. The gradient is defined in terms of the partial derivatives of a function:
