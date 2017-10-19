@@ -219,3 +219,7 @@ In the case when the domain is *n*-dimensional, i.e. *f*: ℝ<sup>*n*</sup> → 
 The gradient is important for two primary reasons:
 1. As in the 1-dimensional case, optimization requires solving ∇f(x<sub>1</sub>, ..., x<sub>n</sub>) = 0. Intuitively, this is where the slope of the function is zero in every direction.
 2. The gradient gives the direction of steepest ascent (and the opposite direction gives the steepest descent), which becomes useful when approximating maximums and minimums.
+
+*Questions*
+
+1. If **c** and **x** are column vectors, what is ∇<sub>x</sub> **c**<sup>**T**</sup>·**x**?
