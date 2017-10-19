@@ -212,4 +212,10 @@ The Gradient
 ------------
 In machine learning, we often want to perform optimization by minimizing a function over a given domain. In calculus, this is done by taking the derivative *d/dx*, setting it to zero, and solving for *x*. If such a point is found, then it can be determined as a minimum, maximum, or saddle point by checking whether the second derivative *d<sup>2</sup>/dx<sup>2</sup>* is positive, negative, or zero (respectively).
 
-In the case when the domain is *n*-dimensional, i.e. *f*: ℝ<sup>*n*</sup> → ℝ, this is accomplished via the generalized derivative, the *gradient*. The gradient is defined in terms of the partial derivatives of a function:
+In the case when the domain is *n*-dimensional, i.e. *f*: ℝ<sup>*n*</sup> → ℝ, this is accomplished via the generalized derivative, the *gradient*. The gradient is defined in terms of the partial derivatives of a function:<p align="center">
+  <img src="https://i.imgur.com/QhMDvgm.png" height="100">
+</p>
+
+The gradient is important for two primary reasons:
+1. As in the 1-dimensional case, optimization requires solving ∇f(x<sub>1</sub>, ..., x<sub>n</sub>) = 0. Intuitively, this is where the slope of the function is zero in every direction.
+2. The gradient gives the direction of steepest ascent (and the opposite direction gives the steepest descent), which becomes useful when approximating maximums and minimums.
