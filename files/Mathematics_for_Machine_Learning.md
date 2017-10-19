@@ -208,6 +208,18 @@ Matrices can be multiplied, and the product of matrices **A** and **B** is the l
 
 A square (*n* x *n*)-dimensional matrix **A** is said to have an inverse if there is a matrix **A<sup>-1</sup>** such that **A** **A<sup>-1</sup>** = **A<sup>-1</sup>** **A** = **I<sub>n</sub>**. Methods for computing an inverse are complex, but many computationally-efficient techniques exist. A matrix has an inverse only if its determinant is non-zero. (The *determinant* of a matrix is a real number that can be viewed as the scaling factor of the linear transformation corresponding to the matrix. It is a complex topic too involved for this brief introduction, but very important nonetheless.)
 
+The Norm
+--------
+Often, we will need to measure the size of a vector. This is done via a *norm* - a function by which each vector is mapped to a real number, which represents its measurement.
+
+The *L<sup>p</sup>* norm for *p >= 1* of the vector **x** is defined as:<p align="center">
+  <img src="https://i.imgur.com/AwZ3XHp.png" height="70">
+</p>
+
+The most commonly used value of *p* is 2, which is the familiar Euclidean distance:<p align="center">
+  <img src="https://i.imgur.com/OygbUMu.png" height="70">
+</p>
+
 The Gradient
 ------------
 In machine learning, we often want to perform optimization by minimizing a function over a given domain. In calculus, this is done by taking the derivative *d/dx*, setting it to zero, and solving for *x*. If such a point is found, then it can be determined as a minimum, maximum, or saddle point by checking whether the second derivative *d<sup>2</sup>/dx<sup>2</sup>* is positive, negative, or zero (respectively).
