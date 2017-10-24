@@ -9,8 +9,8 @@ Course Content
 ---------------------------------
 1. Introduction, Probability Theory, Linear Algebra
 2. Linear and Logistic Regression
-3. Maximum Likelihood, Gradient Descent
-4. Regularization, Dimensionality Reduction
+3. Regularization, Gradient Descent
+4. Maximum Likelihood, Dimensionality Reduction
 5. Support Vector Machines
 6. Bayesian Approaches
 
