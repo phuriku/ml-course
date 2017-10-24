@@ -15,3 +15,9 @@ Remember that our purpose is to minimize the loss function: hence, this will be 
 Stochastic Gradient Descent
 ---------------------------
 Even when the gradient of the loss function is known, gradient descent can become impractical when we have a very large dataset. (Recall that loss functions like MSE require summing over all data points.) We can avoid this problem with the use of *mini-batching*, which in essence is random sampling of the large dataset. A surprisingly accurate approach, mini-batching allows us to work with datasets with billions of data points without encountering performance difficulties.
+
+Limited-Memory BFGS
+-------------------
+Spark MLLib's *LinearRegressionWithSGD* class has been deprecated since Spark 2.0.0. Spark has since moved on to a conceptually similar, but more efficient in practice technique called Limited-Memory BFGS or (*L-BFGS*).
+
+*L-BFGS* is used by default by the *LinearRegression* class, with default parameters *max iterations = 100* and *tolerance = 1E-6*. Tolerance measures at what point we can classify the gradient as 0 (since computers are inexact).
