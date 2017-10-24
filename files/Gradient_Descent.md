@@ -4,9 +4,9 @@ Gradient Descent
 Gradient descent is one of the most commonly used numerical techniques for optimization. In short, it uses the fact that the steepest descent is in the opposite direction of the gradient vector to numerically approximate a minimum. By taking strategically-sized steps in the direction of steepest descent, a local minimum can eventually be found without difficulty.
 
 In mathematical terms, the gradient descent method performs the following iterations, depending on step size η:<p align="center">
-  <img src="https://imgur.com/XovaZyt.png" height="32">
+  <img src="https://imgur.com/XovaZyt.png" height="38">
 </p>
-, where *L(w)* signifies the loss function as applied to the predictor function with weights *w*.
+, where L(w) signifies the loss function as applied to the predictor function with weights w.
 
 Choosing the correct value of η is of great importance. If it is too big, it will overshoot the minimum, while if it is too small, it is a waste of computational resources.
 

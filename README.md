@@ -14,3 +14,5 @@ Machine Learning with Spark MLlib
   - [Overfitting & Model Performance](https://github.com/phuriku/ml-course/blob/master/files/Regression.md#model-performance-and-overfitting)
   - [Linear Regression](https://github.com/phuriku/ml-course/blob/master/files/Regression.md#linear-regression)
   - [Logistic Regression](https://github.com/phuriku/ml-course/blob/master/files/Regression.md#logistic-regression)
+- [Gradient Descent](https://github.com/phuriku/ml-course/blob/master/files/Gradient_Descent.md)
+- [Regularization](https://github.com/phuriku/ml-course/blob/master/files/Regularization.md)
