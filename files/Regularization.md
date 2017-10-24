@@ -25,3 +25,8 @@ Which Regularization To Use?
 The question then becomes, which type of regularization is better? The answer is, of course, that it largely depends on what we're trying to accomplish. In general, L<sub>1</sub> regularization often produces sparse weights (i.e., weights with many 0's), and L<sub>1</sub> regularization usually produces small distributed weights.
 
 What this means is, when we are sure that our features are independent of each other and each has an effect on the label, it is often wise to use L<sub>2</sub> regularization, since no weights will be discounted. On the other hand, if our features are not independent of each other or if many weights don't have an effect on the prediction, then L<sub>1</sub> regularization is likely the better approach.
+
+Regularization in Spark MLLib
+-----------------------------
+
+Regularization in Spark MLLib can be set on a model with 2 parameters: the regularization parameter and the elastic net parameter. The elastic net parameter determines how much weight to give to the L<sub>1</sub> and L<sub>2</sub> regularization terms. If this parameter is set to 1, then only L<sub>1</sub> is used; if 0, only L<sub>2</sub> is used; if 0.5, an equal weight of both will be used. The regularization parameter is our familiar λ from above.
