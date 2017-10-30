@@ -16,3 +16,4 @@ Machine Learning with Spark MLlib
   - [Logistic Regression](https://github.com/phuriku/ml-course/blob/master/files/Regression.md#logistic-regression)
 - [Gradient Descent](https://github.com/phuriku/ml-course/blob/master/files/Gradient_Descent.md)
 - [Regularization](https://github.com/phuriku/ml-course/blob/master/files/Regularization.md)
+- [Naive Bayes](https://github.com/phuriku/ml-course/blob/master/files/Naive_Bayes.md)
