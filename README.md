@@ -17,3 +17,4 @@ Machine Learning with Spark MLlib
 - [Gradient Descent](https://github.com/phuriku/ml-course/blob/master/files/Gradient_Descent.md)
 - [Regularization](https://github.com/phuriku/ml-course/blob/master/files/Regularization.md)
 - [Naive Bayes](https://github.com/phuriku/ml-course/blob/master/files/Naive_Bayes.md)
+- [Collaborative Filtering](https://github.com/phuriku/ml-course/blob/master/files/Collaborative_Filtering.md)

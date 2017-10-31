@@ -10,9 +10,9 @@ Course Content
 1. Introduction, Probability Theory, Linear Algebra
 2. Linear and Logistic Regression
 3. Regularization, Gradient Descent
-4. Maximum Likelihood, Dimensionality Reduction
-5. Support Vector Machines
-6. Bayesian Approaches
+4. Naive Bayes, Collaborative Filtering
+5. Dimensionality Reduction
+6. Neural Networks, Multilayer Perceptrons
 
 Reference Material
 ---------
