@@ -6,7 +6,7 @@ The Naive Bayes method of classification is a method of classifying data into cl
 Bayes Theorem
 -------------
 Bayes Theorem gives the following formula:<p align="center">
-  <img src="https://imgur.com/ibGyb3o.png" height="58">
+  <img src="https://imgur.com/S3SqTaw.png" height="62">
 </p>
 
 This is due to the fact that,<p align="center">
@@ -62,7 +62,7 @@ Given the above table, what is the probability that someone with height 6', weig
 
 Let us first note that we have two classes here: male and female. We can further assume that the population is 50% male and 50% female.
 
-Now we have to calculate the three values *P(height | male)*, *P(weight | male)*, and *P(foot size | male)*. Assuming that all of these are Gaussian distributions, we can calculate the mean and variance of the distributions by averaging across the male data points and finding the average square distance from the mean, respectively. This yields the following values for males:
+Now we have to calculate the three values *pdf(height | male)*, *pdf(weight | male)*, and *pdf(foot size | male)*. Assuming that all of these are Gaussian distributions, we can calculate the mean and variance of the distributions by averaging across the male data points and finding the average square distance from the mean, respectively. This yields the following values for males:
 
 
 |                   | Height | Weight   | Foot Size
@@ -70,6 +70,6 @@ Now we have to calculate the three values *P(height | male)*, *P(weight | male)*
 | **μ**             | 5.855  | 176.25lb | 11.25"
 | **σ<sup>2</sup>**	| 0.026  |	92.2lb  | 0.6875"
 
-Now in order for us to find *P(*height* = 6' | *male*),* we simply plug height = 6' into the Gaussian distribution with mean μ=5.855 and σ<sup>2</sup>=0.026, and get *P(*height = *6'* | male*)* = 1.6496. Similarly, we get *P(*weight = *130lb* | male*)* = 0.00000038 and *P(*height = *6'* | male*)* = 0.00022185. This means that the numerator of our formula for males is 0.5 x 1.6496 x 0.00000038 x 0.00022185 = 6.953E-11.
+Now in order for us to find *pdf(*height* = 6' | *male*),* we simply plug height = 6' into the Gaussian distribution with mean μ=5.855 and σ<sup>2</sup>=0.026, and get *pdf(*height = *6'* | male*)* = 1.6496. Similarly, we get *pdf(*weight = *130lb* | male*)* = 0.00000038 and *pdf(*foot size = *8"* | male*)* = 0.00022185. This means that the numerator of our formula for males is 0.5 x 1.6496 x 0.00000038 x 0.00022185 = 6.953E-11.
 
 Similarly, we calculate the numerator for females to be 0.5 \* 0.14422184 \* 0.01935055 \* 0.32286937 = 4.505E-4. Adding the figures for males and females yields the denominator, and we can see the probability that the person at hand is a male is 1.5E-7, or 0.000015%.
