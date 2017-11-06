@@ -18,3 +18,4 @@ Machine Learning with Spark MLlib
 - [Regularization](https://github.com/phuriku/ml-course/blob/master/files/Regularization.md)
 - [Naive Bayes](https://github.com/phuriku/ml-course/blob/master/files/Naive_Bayes.md)
 - [Collaborative Filtering](https://github.com/phuriku/ml-course/blob/master/files/Collaborative_Filtering.md)
+- [Dimensionality Reduction](https://github.com/phuriku/ml-course/blob/master/files/Dimensionality_Reduction.md)
