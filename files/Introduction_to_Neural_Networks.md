@@ -24,7 +24,7 @@ Perceptrons
 -----------
 To understand neural networks, we must first understand their elementary components. We must therefore first study perceptrons. (To hint at what is to come, the most simple type of neural network is called a multilayer perceptron.)
 
-A perceptron is meant to conceptually model a neuron in its most simplistic form. A perceptron takes input parameters x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> and produces an output value of either 1 or 0 (i.e., embodying the concept of activation).
+A perceptron is meant to conceptually model a neuron in its most simplistic form. A perceptron takes input parameters x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> and produces an output value of either 0 or 1 (i.e., embodying the concept of activation).
 
 The logic here is that there are implicit weights w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub> for each input parameter, and if the dot product of the inputs and weights (v ・ w = ∑ v<sub>i</sub> w<sub>i</sub>) exceeds a particular threshold value *t*, the perceptron outputs value 1. If it doesn't exceed *t*, then the output is 0.
 
@@ -40,13 +40,17 @@ Unfortunately, there is a practical issue at hand with perceptrons: training the
 
 This function is the logistic sigmoid that we have seen before in regression tasks:
 
+<p align="center">
+  <img src="https://camo.githubusercontent.com/e85ba2641eccc928aaf31a8d0240cee063b05564/68747470733a2f2f696d6775722e636f6d2f795354336539692e706e67" height="150">
+</p>
+
 The logistic sigmoid can take values in the range of 0 to 1. A value greater than 0.5 conceptually represents a 1, while a value less than 0.5 represents a 0. We recall that the logistic sigmoid takes the form
 
 <p align="center">
   <img src="https://camo.githubusercontent.com/aa3a25c4107999a7ffbe6bc87a5e972b01dec615/68747470733a2f2f696d6775722e636f6d2f5948476c4967712e706e67" height="60">
 </p>
 
-. This of course presumes that the weights are represented as a row vector *w*.
+This of course presumes that the weights are represented as a row vector *w*.
 
 
 Feedforward networks
@@ -61,16 +65,18 @@ We can visualize a neural network as the following:
 
 The lines in the above diagram are all distinct weights, while the circles represent neurons. The values of neurons in layer m therefore single-handedly determine the values of the neurons in layer m+1, after the weights have been applied. This is the distinguishing feature of feedforward networks: each layer is dependent only on the previous layer; more specifically, there are no feedback loops.
 
- Another type of neural network, called a *recurrent neural network*, does incorporate the concept of feedback loops. While the recurrent network paradigm is closer to the human brain in functionality, it has thus far not produced performance correspondent to its increase in complexity, and has thus proved less useful in practice than feedforward neural networks, which we shall exclusively examine herein.
+Another type of neural network, called a *recurrent neural network*, does incorporate the concept of feedback loops. While the recurrent network paradigm is closer to the human brain in functionality, it has thus far not produced performance correspondent to its increase in complexity, and has thus proved less useful in practice than feedforward neural networks, which we shall exclusively examine herein.
 
- Backpropagation
- ---------------
+Backpropagation
+---------------
 
-It should be clear, then, that training a model with a neural network means finding an appropriate value for each weight. This is done through the process of *backpropagation*, which in simple terms means going back and changing the weights appropriately after observing a piece of training data. Hence, when a piece of training data passes through the neural network, the weights are adjusted through backpropagation, and then the neural network moves on to evaluating the next piece of training data.
+It should be clear, then, that training a model with a neural network means finding an appropriate value for each weight. This is done through a process called *backpropagation* that isn't too different from the other weight-adjustment methods we've seen in earlier lectures. When training data passes through the neural network, the weights are continuously adjusted through backpropagation until it's judged that the neural network provides sufficient precision for incoming data.
+
+The precise algorithm for backpropagation is complex. As its name implies, the way it works is by approximating the errors contributed by weights at the latter levels, making proper adjustments, and then propagating these adjustments backward to weights at earlier levels.
+
+In actuality, backpropagation is just a convenient mathematical trick for efficiently computing gradients so that we can use stochastic gradient descent (SGD) to optimize our neural networks. As such, understanding it isn't strictly necessary for understanding how neural networks work. In the below explanation, we will explain neural networks in terms of SGD, but it's important to note that neural networks often function by employing SGD in conjunction with backpropagation.
 
 To do this, we first need a cost function. In this case, we use:
-
-The precise algorithm for backpropagation is complex, and involves complex mathematics. As its name implies, the way it works is by approximating the errors contributed by weights at the last levels, making proper adjustments, and then propagating these adjustments backward to weights at earlier levels.
 
 The MNIST Handwriting Dataset
 =============================
@@ -82,4 +88,12 @@ Schema
 
 We will first need to create a schema for creating the neural network and analyzing its performance. We will create the neural network with Spark ML's multilayer perceptron implementation (recall that multilayer perceptron is just another name for feedforward neural network). To analyze its performance, we will split the dataset into 50,000 training samples and 10,000 test samples.
 
-The dataset is composed of 28x28 pixel images of scanned handwritten digits. As such, our feature space has dimension 784 = 28 x 28. The data is available in libsvm format (here: ), which is the format preferred by Spark for processing.
+The dataset is composed of 28x28 pixel images of scanned handwritten digits. As such, our feature space has dimension 784 = 28 x 28. The data is available in libsvm format ([here](https://github.com/phuriku/ml-course/blob/master/resources/mnist.libsvm)), which is the format preferred by Spark for processing.
+
+For our neural network, we will initially use one hidden layer of 15 neurons:
+
+<p align="center">
+  <img src="http://neuralnetworksanddeeplearning.com/images/tikz12.png" height="480">
+</p>
+
+The rest of this tutorial will continue with the Spark application residing [here](https://github.com/phuriku/spark-ml/blob/master/src/main/scala/com/expedia/spark/examples/MultilayerPerceptronRunner.scala). With this example, I was able to see accuracy to 78% of the handwritten digits.
