@@ -9,7 +9,9 @@ A neural network is a machine learning paradigm that is influenced by how neuron
 
 The human brain uses 86 billion neurons. Most applications using neural networks use far fewer than 1 million artificial neurons, and even many of these are so computationally intensive that they prove ineffective in terms of time or money. As such, the artificial neural networks currently in use come nowhere near to meeting the performance of the human brain, and are not expected to meet this level until at least 2050 (and even this is a somewhat ambitious date). The largest neural networks in use today are about as powerful as the brain of an ant or a cockroach. In this tutorial, we will use less than a hundred neurons to do a simple handwriting recognition task.
 
-![Imgur](https://upload.wikimedia.org/wikipedia/commons/f/fe/Brain_size_comparison_-_Brain_neurons_%28billions%29.png)
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Brain_size_comparison_-_Brain_neurons_%28billions%29.png" height="350">
+</p>
 
 What's wrong with regression?
 -----------------------------
@@ -22,13 +24,15 @@ Perceptrons
 -----------
 To understand neural networks, we must first understand their elementary components. We must therefore first study perceptrons. (To hint at what is to come, the most simple type of neural network is called a multilayer perceptron.)
 
-A perceptron is meant to conceptually model a neuron in its most simplistic form. A perceptron takes input parameters x_1, x_2, ..., x_n and produces an output value of either 1 or 0 (i.e., embodying the concept of either firing or not firing).
+A perceptron is meant to conceptually model a neuron in its most simplistic form. A perceptron takes input parameters x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> and produces an output value of either 1 or 0 (i.e., embodying the concept of activation).
 
-The logic here is that there exist implicit weights w_1, w_2, ..., w_n for each input parameter, and if the dot product of the inputs and weights (v dot w = sum v_i w_i) exceeds a particular threshold value *t*, the perceptron outputs value 1. If it doesn't exceed *t*, then the output is 0.
+The logic here is that there are implicit weights w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub> for each input parameter, and if the dot product of the inputs and weights (v ・ w = ∑ v<sub>i</sub> w<sub>i</sub>) exceeds a particular threshold value *t*, the perceptron outputs value 1. If it doesn't exceed *t*, then the output is 0.
 
 There is a simplification that we can make here. Instead of using the threshold value *t*, we can introduce a bias term *b*, and then make the comparison against 0:
 
-![Imgur](https://i.imgur.com/IeJmyQc.png)
+<p align="center">
+  <img src="https://i.imgur.com/IeJmyQc.png" height="60">
+</p>
 
 Artificial Neurons
 ---------------
@@ -38,7 +42,9 @@ This function is the logistic sigmoid that we have seen before in regression tas
 
 The logistic sigmoid can take values in the range of 0 to 1. A value greater than 0.5 conceptually represents a 1, while a value less than 0.5 represents a 0. We recall that the logistic sigmoid takes the form
 
-![Imgur](https://camo.githubusercontent.com/aa3a25c4107999a7ffbe6bc87a5e972b01dec615/68747470733a2f2f696d6775722e636f6d2f5948476c4967712e706e67)
+<p align="center">
+  <img src="https://camo.githubusercontent.com/aa3a25c4107999a7ffbe6bc87a5e972b01dec615/68747470733a2f2f696d6775722e636f6d2f5948476c4967712e706e67" height="60">
+</p>
 
 . This of course presumes that the weights are represented as a row vector *w*.
 
@@ -49,7 +55,9 @@ A feedforward network is a generalization of the sigmoid neuron to multiple laye
 
 We can visualize a neural network as the following:
 
-![Imgur](http://neuralnetworksanddeeplearning.com/images/tikz11.png)
+<p align="center">
+  <img src="http://neuralnetworksanddeeplearning.com/images/tikz11.png" height="260">
+</p>
 
 The lines in the above diagram are all distinct weights, while the circles represent neurons. The values of neurons in layer m therefore single-handedly determine the values of the neurons in layer m+1, after the weights have been applied. This is the distinguishing feature of feedforward networks: each layer is dependent only on the previous layer; more specifically, there are no feedback loops.
 
