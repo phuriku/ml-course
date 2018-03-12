@@ -5,9 +5,9 @@ This page is meant as a brief introduction to neural networks and how to model t
 
 What is a neural network?
 -------------------------
-A neural network is a machine learning paradigm that is influenced by how neurons act in the human brain. This isn't to say that the modern neural networks work the same as the human brain -- actually, they are structured quite differently, and the implementations that are closer in reality to the way that human brains work (e.g. recurrent neural networks) haven't been as effective as more artificial implementations.
+A neural network is a machine learning paradigm that is influenced by how neurons act in the human brain. This isn't to say that modern neural networks work the same as the human brain -- actually, they are structured quite differently, and the implementations that are closer to how human brains work (e.g. recurrent neural networks) haven't been as effective as more artificial implementations.
 
-The human brain uses 86 billion neurons. Most applications using neural networks use far fewer than 1 million artificial neurons, and even many of these are so computationally intensive that they prove ineffective in terms of time or money. As such, the artificial neural networks currently in use come nowhere near to meeting the performance of the human brain, and are not expected to meet this level until at least 2050 (and even this is a somewhat ambitious date). The largest neural networks in use today are about as powerful as the brain of an ant or a cockroach. In this tutorial, we will use less than a hundred neurons to do a simple handwriting recognition task.
+The human brain uses 86 billion neurons. Most applications using neural networks use far fewer than a million artificial neurons, and even many of these are so computationally intensive that they prove ineffective in terms of time or financing. As such, the artificial neural networks currently in use come nowhere near to meeting the performance of the human brain, and are not expected to meet this level until at least 2050 (and even this is a somewhat ambitious date). The largest neural networks in use today are about as powerful as the brain of an ant or a cockroach. In this tutorial, we will use less than a hundred neurons to do a simple handwriting recognition task.
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Brain_size_comparison_-_Brain_neurons_%28billions%29.png" height="350">
@@ -15,20 +15,27 @@ The human brain uses 86 billion neurons. Most applications using neural networks
 
 What's wrong with regression?
 -----------------------------
+We have spent much time to this point learning about more simple machine learning paradigms like regression. Why do we need neural networks, and if neural networks perform better than other paradigms, then why not use them exclusively?
 
-There's nothing inherently wrong with regression, and many problems can be solved by simple linear regression. However, it must be mentioned that there are implicit assumptions built into any regression model. In particular, due to the risk of overfitting, non-linear regression usually only tends to be useful for distributions known to be order 2. And of course, linear regression cannot model non-linear data sets.
+There's nothing inherently wrong with regression, and many problems can be solved by simple linear regression. However, it must be mentioned that there are implicit assumptions built into any regression model. In particular, due to the risk of overfitting, non-linear regression usually tends to be useful only for distributions known to be of order 2 or below (linear or parametric).
 
 As such, complex use cases like computer vision and speech recognition must look elsewhere. Neural networks have largely helped to fill this gap in complexity, even though they are still in their infancy and in no way compare to human intelligence in performance.
 
+Even though they are more advanced than other techniques, neural networks are much more computationally intensive; therefore, it is necessary to ensure that we're using them for appropriately complex tasks.
+
 Perceptrons
 -----------
-To understand neural networks, we must first understand their elementary components. We must therefore first study perceptrons. (To hint at what is to come, the most simple type of neural network is called a multilayer perceptron.)
+To understand neural networks, we must first understand their elementary components. This necessitates that we first study perceptrons. (To hint at what is to come, the most simple type of neural network is called a multilayer perceptron.)
 
 A perceptron is meant to conceptually model a neuron in its most simplistic form. A perceptron takes input parameters x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub> and produces an output value of either 0 or 1 (i.e., embodying the concept of activation).
 
-The logic here is that there are implicit weights w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub> for each input parameter, and if the dot product of the inputs and weights (v ・ w = ∑ v<sub>i</sub> w<sub>i</sub>) exceeds a particular threshold value *t*, the perceptron outputs value 1. If it doesn't exceed *t*, then the output is 0.
+<p align="center">
+  <img src="http://neuralnetworksanddeeplearning.com/images/tikz9.png" height="100">
+</p>
 
-There is a simplification that we can make here. Instead of using the threshold value *t*, we can introduce a bias term *b*, and then make the comparison against 0:
+The logic here is that there are implicit weights w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub> for each input parameter, and if the dot product of the inputs and weights (v ・ w = ∑ v<sub>i</sub> w<sub>i</sub>) exceeds a particular threshold value *T*, the perceptron outputs value 1. If it doesn't exceed *T*, then the output is 0.
+
+There is a simplification that we can make here. Instead of using the threshold value *T*, we can introduce a bias term *b*, and then make the comparison against 0:
 
 <p align="center">
   <img src="https://i.imgur.com/IeJmyQc.png" height="60">
@@ -36,9 +43,9 @@ There is a simplification that we can make here. Instead of using the threshold 
 
 Artificial Neurons
 ---------------
-Unfortunately, there is a practical issue at hand with perceptrons: training them can be difficult. This is because small variations in the input parameters can produce a large change in the output: the perceptron can only output values of 0 or 1. As such, it becomes advantageous in a practical sense to introduce a function that will represent values of 0 and 1 conceptually but is more flexibly variant.
+Unfortunately, there is a practical issue at hand with perceptrons: training them can be difficult. This is because small variations in the input parameters can produce a large change in the output: the perceptron can only output values of 0 or 1. As such, it becomes advantageous in a practical sense to introduce a function that will represent values of 0 and 1 conceptually but that is more flexibly variant.
 
-This function is the logistic sigmoid that we have seen before in regression tasks:
+This function is the logistic sigmoid that we have seen before in logistic regression:
 
 <p align="center">
   <img src="https://camo.githubusercontent.com/e85ba2641eccc928aaf31a8d0240cee063b05564/68747470733a2f2f696d6775722e636f6d2f795354336539692e706e67" height="150">
@@ -50,8 +57,7 @@ The logistic sigmoid can take values in the range of 0 to 1. A value greater tha
   <img src="https://camo.githubusercontent.com/aa3a25c4107999a7ffbe6bc87a5e972b01dec615/68747470733a2f2f696d6775722e636f6d2f5948476c4967712e706e67" height="60">
 </p>
 
-This of course presumes that the weights are represented as a row vector *w*.
-
+This of course presumes that the weights are represented as a row vector *w*. We can more train artificial neurons simply using logistic regression or stochastic gradient descent.
 
 Feedforward networks
 ---------------
@@ -78,6 +84,14 @@ In actuality, backpropagation is just a convenient mathematical trick for effici
 
 To do this, we first need a cost function. In this case, we use:
 
+<p align="center">
+  <img src="https://imgur.com/OzTYRQc.png" height="70">
+</p>
+
+, where *w* represents the weights, *b* the bias, *a* the expectation, and *y(x)* the real value of sample *x* after pushing it through the neural network.
+
+Note that this this is just the mean square error (MSE) divided by 2. In other words, we can solve this problem by techniques that we've used to solve other problems. As mentioned, this is usually just SGD.
+
 The MNIST Handwriting Dataset
 =============================
 
@@ -96,4 +110,11 @@ For our neural network, we will initially use one hidden layer of 15 neurons:
   <img src="http://neuralnetworksanddeeplearning.com/images/tikz12.png" height="480">
 </p>
 
-The rest of this tutorial will continue with the Spark application residing [here](https://github.com/phuriku/spark-ml/blob/master/src/main/scala/com/expedia/spark/examples/MultilayerPerceptronRunner.scala). With this example, I was able to see accuracy to 78% of the handwritten digits.
+The rest of this tutorial will continue with the Spark application residing [here](https://github.com/phuriku/spark-ml/blob/master/src/main/scala/com/expedia/spark/examples/MultilayerPerceptronRunner.scala). With this example, I was able to see an initial accuracy to 78% of the handwritten digits using most of the default Spark hyperparameters.
+
+The hyperparameters we can specify include:
+- layers
+- tolerance
+- max iterations
+
+At the beginning this article, we mentioned how one of the pitfalls of regression is that you need to know exactly what type of function you want to model a set of data with, due to a fear of overfitting. With neural networks, we no longer have to worry about this, as increasing complexity by adding neurons only has the effect of increasing the neural network's potential for accurate learning. Since increasing layers and neurons also has the negative effect of increasing compute time, the tradeoff that can be specified by hyperparameters becomes one of accuracy vs. velocity.
